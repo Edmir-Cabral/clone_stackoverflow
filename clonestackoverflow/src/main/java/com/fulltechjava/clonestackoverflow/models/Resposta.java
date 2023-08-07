@@ -14,19 +14,23 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Resposta {
 
+	public Resposta(String resposta) {
+		this.descricao_resposta = resposta;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Integer id;
 	
-	@Column(name = "RESPOSTA")
-	private String resposta;
+	@Column(name = "DESCRICAO_RESPOSTA")
+	private String descricao_resposta;
 	
 
 	@Column(name = "DATA_RESPOSTA")
 	private Date data_resposta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
 	private Usuario usuario;
 	
@@ -43,11 +47,11 @@ public class Resposta {
 	}
 
 	public String getResposta() {
-		return resposta;
+		return descricao_resposta;
 	}
 
 	public void setResposta(String resposta) {
-		this.resposta = resposta;
+		this.descricao_resposta = resposta;
 	}
 
 	public Date getData_resposta() {

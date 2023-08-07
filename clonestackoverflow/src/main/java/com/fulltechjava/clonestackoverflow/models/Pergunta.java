@@ -16,6 +16,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Pergunta {
 	
+	public Pergunta(String descricao_pergunta) {
+		this.descricao_pergunta = descricao_pergunta;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -30,12 +34,20 @@ public class Pergunta {
 	@Column(name = "DATA_PERGUNTA")
 	private Date data_pergunta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "resposta")
+	@OneToMany(mappedBy = "pergunta")  
 	private List<Resposta> respostas;
+
+	public List<Resposta> getRespostas() {
+		return respostas;
+	}
+
+	public void setRespostas(List<Resposta> respostas) {
+		this.respostas = respostas;
+	}
 
 	public Integer getId() {
 		return id;
