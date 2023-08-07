@@ -1,6 +1,7 @@
 package com.fulltechjava.clonestackoverflow.models;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 
@@ -24,6 +25,12 @@ public class Usuario {
 	
 	@Column(name = "DATA_CRIACAO")
 	private Date data_criacao;
+	
+	@OneToMany(mappedBy = "resposta")
+	private List<Resposta> resposta;
+	
+	@OneToMany(mappedBy = "pergunta")
+	private List<Pergunta> pergunta;
 	
 	public Integer getId() {
 		return id;

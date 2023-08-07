@@ -1,13 +1,17 @@
 package com.fulltechjava.clonestackoverflow.models;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pergunta {
@@ -26,8 +30,12 @@ public class Pergunta {
 	@Column(name = "DATA_PERGUNTA")
 	private Date data_pergunta;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_usuario")
 	private Usuario usuario;
+	
+	@OneToMany(mappedBy = "resposta")
+	private List<Resposta> respostas;
 
 	public Integer getId() {
 		return id;
