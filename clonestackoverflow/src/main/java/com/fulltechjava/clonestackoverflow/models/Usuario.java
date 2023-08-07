@@ -12,6 +12,14 @@ import javax.persistence.*;
 @Table(name = "USUARIOS")
 public class Usuario {
 	
+	public Usuario() {
+		
+	}
+	
+public Usuario(Integer id) {
+		this.id = id;
+	}
+	
 	public Usuario(Integer id, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
 		super();
 		this.id = id;

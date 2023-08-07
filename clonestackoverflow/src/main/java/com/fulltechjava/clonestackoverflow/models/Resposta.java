@@ -13,11 +13,27 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Resposta {
+	
+	public Resposta() {
+		
+	}
 
 	public Resposta(String resposta) {
 		this.descricao_resposta = resposta;
 	}
 	
+	
+	
+	public Resposta( String descricao_resposta, Usuario usuario, Pergunta pergunta) {
+		super();
+		
+		this.descricao_resposta = descricao_resposta;
+		this.usuario = usuario;
+		this.pergunta = pergunta;
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")

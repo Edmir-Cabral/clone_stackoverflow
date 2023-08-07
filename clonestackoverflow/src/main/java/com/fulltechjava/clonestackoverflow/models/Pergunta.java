@@ -15,30 +15,46 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Pergunta {
+
+	public Pergunta() {
+
+	}
 	
+	
+
+	public Pergunta( String titulo_pergunta, String descricao_pergunta, Usuario usuario) {
+		super();
+		
+		this.titulo_pergunta = titulo_pergunta;
+		this.descricao_pergunta = descricao_pergunta;
+		this.usuario = usuario;
+	}
+
+
+
 	public Pergunta(String descricao_pergunta) {
 		this.descricao_pergunta = descricao_pergunta;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Integer id;
-	
+
 	@Column(name = "TITULO_PERGUNTA")
 	private String titulo_pergunta;
-	
+
 	@Column(name = "DESCRICAO_PERGUNTA")
 	private String descricao_pergunta;
-	
+
 	@Column(name = "DATA_PERGUNTA")
 	private Date data_pergunta;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_usuario")
 	private Usuario usuario;
-	
-	@OneToMany(mappedBy = "pergunta")  
+
+	@OneToMany(mappedBy = "pergunta")
 	private List<Resposta> respostas;
 
 	public List<Resposta> getRespostas() {
@@ -88,5 +104,5 @@ public class Pergunta {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 }
