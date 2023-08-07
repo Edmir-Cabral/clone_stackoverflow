@@ -12,14 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "perguntas")
 public class Pergunta {
 
 	public Pergunta() {
 
-	}
-	
+	}	
 	
 
 	public Pergunta( String titulo_pergunta, String descricao_pergunta, Usuario usuario) {

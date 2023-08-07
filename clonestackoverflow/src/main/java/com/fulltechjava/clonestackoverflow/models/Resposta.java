@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "respostas")
 public class Resposta {
 	
 	public Resposta() {
@@ -40,8 +42,7 @@ public class Resposta {
 	private Integer id;
 	
 	@Column(name = "DESCRICAO_RESPOSTA")
-	private String descricao_resposta;
-	
+	private String descricao_resposta;	
 
 	@Column(name = "DATA_RESPOSTA")
 	private Date data_resposta;
