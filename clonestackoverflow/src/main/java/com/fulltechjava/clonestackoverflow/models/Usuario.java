@@ -12,6 +12,22 @@ import javax.persistence.*;
 @Table(name = "USUARIOS")
 public class Usuario {
 	
+	public Usuario() {
+		
+	}
+	
+public Usuario(Integer id) {
+		this.id = id;
+	}
+	
+	public Usuario(Integer id, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.nome = nome;
+		this.respostas = resposta;
+		this.perguntas = pergunta;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -26,11 +42,24 @@ public class Usuario {
 	@Column(name = "DATA_CRIACAO")
 	private Date data_criacao;
 	
-	@OneToMany(mappedBy = "resposta")
-	private List<Resposta> resposta;
+	@OneToMany(mappedBy = "usuario")
+	private List<Resposta> respostas;
 	
-	@OneToMany(mappedBy = "pergunta")
-	private List<Pergunta> pergunta;
+	@OneToMany(mappedBy = "usuario")
+	private List<Pergunta> perguntas;
+	
+	public List<Resposta> getResposta() {
+		return respostas;
+	}
+	public void setResposta(List<Resposta> resposta) {
+		this.respostas = resposta;
+	}
+	public List<Pergunta> getPergunta() {
+		return perguntas;
+	}
+	public void setPergunta(List<Pergunta> pergunta) {
+		this.perguntas = pergunta;
+	}
 	
 	public Integer getId() {
 		return id;
