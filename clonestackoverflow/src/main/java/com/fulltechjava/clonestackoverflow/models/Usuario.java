@@ -1,10 +1,9 @@
 package com.fulltechjava.clonestackoverflow.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-
 
 import javax.persistence.*;
 
@@ -16,11 +15,17 @@ public class Usuario {
 		
 	}
 	
-public Usuario(Integer id) {
+	public Usuario(Integer id) {
 		this.id = id;
 	}
 	
-	public Usuario(Integer id, int idGoogle, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
+	public Usuario(String email, String idGoogle, String nome) {
+		this.email = email;
+		this.idGoogle = idGoogle;
+		this.nome = nome;
+	}
+	
+	public Usuario(Integer id, String idGoogle, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
 		super();
 		this.id = id;
 		this.idGoogle = idGoogle;
@@ -36,7 +41,7 @@ public Usuario(Integer id) {
 	private Integer id;
 	
 	@Column(name = "GOOGLE_ID")
-	private Integer idGoogle;
+	private String idGoogle;
 	
 	@Column(name = "EMAIL")
 	private String email;
@@ -44,6 +49,7 @@ public Usuario(Integer id) {
 	@Column(name = "NOME")
 	private String nome;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATA_CRIACAO")
 	private Date data_criacao;
 	
@@ -77,11 +83,11 @@ public Usuario(Integer id) {
 		this.id = id;
 	}
 	
-	public Integer getIdGoogle() {
+	public String getIdGoogle() {
 		return idGoogle;
 	}
 
-	public void setIdGoogle(Integer idGoogle) {
+	public void setIdGoogle(String idGoogle) {
 		this.idGoogle = idGoogle;
 	}
 
