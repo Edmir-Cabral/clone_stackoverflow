@@ -16,8 +16,13 @@ public class Usuario {
 		
 	}
 	
-public Usuario(Integer id) {
+	public Usuario(Integer id) {
 		this.id = id;
+	}
+	
+	public Usuario(String email, String nome) {
+		this.email = email;
+		this.nome = nome;
 	}
 	
 	public Usuario(Integer id, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
