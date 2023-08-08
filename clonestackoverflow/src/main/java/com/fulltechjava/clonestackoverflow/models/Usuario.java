@@ -1,10 +1,9 @@
 package com.fulltechjava.clonestackoverflow.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-
 
 import javax.persistence.*;
 
@@ -20,16 +19,13 @@ public class Usuario {
 		this.id = id;
 	}
 	
-<<<<<<< HEAD
-	public Usuario(String email, String nome) {
+	public Usuario(String email, String idGoogle, String nome) {
 		this.email = email;
+		this.idGoogle = idGoogle;
 		this.nome = nome;
 	}
 	
-	public Usuario(Integer id, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
-=======
-	public Usuario(Integer id, int idGoogle, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
->>>>>>> 490f7aaea73e83ae4d642fcbaf984d5740a5d940
+	public Usuario(Integer id, String idGoogle, String email, String nome,List<Pergunta> pergunta, List<Resposta> resposta) {
 		super();
 		this.id = id;
 		this.idGoogle = idGoogle;
@@ -45,7 +41,7 @@ public class Usuario {
 	private Integer id;
 	
 	@Column(name = "GOOGLE_ID")
-	private Integer idGoogle;
+	private String idGoogle;
 	
 	@Column(name = "EMAIL")
 	private String email;
@@ -53,6 +49,7 @@ public class Usuario {
 	@Column(name = "NOME")
 	private String nome;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATA_CRIACAO")
 	private Date data_criacao;
 	
@@ -86,11 +83,11 @@ public class Usuario {
 		this.id = id;
 	}
 	
-	public Integer getIdGoogle() {
+	public String getIdGoogle() {
 		return idGoogle;
 	}
 
-	public void setIdGoogle(Integer idGoogle) {
+	public void setIdGoogle(String idGoogle) {
 		this.idGoogle = idGoogle;
 	}
 
