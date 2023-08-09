@@ -28,9 +28,9 @@
               },
               body: JSON.stringify(usuario)
           })
-          .then(response => response.json())
           .then(result => {
-              console.log("Dados do usuário salvos com sucesso:", result);
+              alert("Bem-vindo, " + usuario.nome);
+              console.log("Dados do usuário salvos com sucesso:", result)
           })
           .catch(error => {
               console.error("Erro ao salvar os dados do usuário:", error);
