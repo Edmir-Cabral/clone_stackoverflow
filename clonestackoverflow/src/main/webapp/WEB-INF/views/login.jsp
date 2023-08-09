@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,6 @@
   <script>
     function handleCredentialResponse(response) {
       const data = jwt_decode(response.credential)
-      console.log(data)
 
       const usuario = {
         email: data.email,
@@ -19,7 +18,6 @@
         nome: data.name,
         data_criacao: new Date()
       };
-      console.log(usuario)
 
       // Enviar os dados do usuï¿½rio para o backend
       fetch("/logar", {
@@ -31,10 +29,9 @@
       })
         .then(result => {
           alert("Bem-vindo, " + usuario.nome);
-          console.log("Dados do usuï¿½rio salvos com sucesso:", result)
         })
         .catch(error => {
-          console.error("Erro ao salvar os dados do usuï¿½rio:", error);
+          alert("Erro ao salvar os dados do usuario:", error);
         });
     }
 
@@ -131,7 +128,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="../../../resources/logo-stackoverflow.png" alt="Logo Stackoverflow">
+      <img src="https://stackoverflow.design/assets/img/logos/so/logo-stackoverflow.png" alt="Logo Stackoverflow">
       <h2>clone</h2>
     </div>
     <div id="buttonDiv"></div>
@@ -139,7 +136,7 @@
 
   <main>
     <div class="title">
-      <h1>Aqui vocÃª pode fazer perguntas sobre <span class="emphasis">TECNOLOGIA</span></h1>
+      <h1>Aqui você pode fazer perguntas sobre <span class="emphasis">TECNOLOGIA</span></h1>
       <h1 class="smaller">e nossa comunidade te ajuda!</h1>
     </div>
   </main>
