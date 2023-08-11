@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +23,9 @@ public class Resposta {
 		this.descricao_resposta = resposta;
 	}
 	
+	public Resposta(Integer id, String descricao_resposta, Date data_resposta, Pergunta pergunta, Usuario usuario) {
+		
+	}
 	
 	
 	public Resposta( String descricao_resposta, Usuario usuario, Pergunta pergunta) {
@@ -33,8 +35,6 @@ public class Resposta {
 		this.usuario = usuario;
 		this.pergunta = pergunta;
 	}
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,11 +48,11 @@ public class Resposta {
 	private Date data_resposta;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_usuario")
+	@JoinColumn(name = "ID_USUARIO")
 	private Usuario usuario;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_pergunta")
+	@ManyToOne
+	@JoinColumn(name = "ID_PERGUNTA")
 	private Pergunta pergunta;
 
 	public Integer getId() {
@@ -63,12 +63,12 @@ public class Resposta {
 		this.id = id;
 	}
 
-	public String getResposta() {
+	public String getDescricao_resposta() {
 		return descricao_resposta;
 	}
 
-	public void setResposta(String resposta) {
-		this.descricao_resposta = resposta;
+	public void setDescricao_resposta(String descricao_resposta) {
+		this.descricao_resposta = descricao_resposta;
 	}
 
 	public Date getData_resposta() {
@@ -94,7 +94,9 @@ public class Resposta {
 	public void setPergunta(Pergunta pergunta) {
 		this.pergunta = pergunta;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Resposta [id=" + id + ", descricao_resposta=" + descricao_resposta + ", data_resposta=" + data_resposta;
+	}
 }

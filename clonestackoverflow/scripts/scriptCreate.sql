@@ -2,7 +2,6 @@ CREATE DATABASE  IF NOT EXISTS `clonestackoverflow`;
 USE `clonestackoverflow`;
 
  
-
 CREATE TABLE `Usuarios` (
     ID int  not null AUTO_INCREMENT,
     GOOGLE_ID VARCHAR(100) NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE `Usuarios` (
     DATA_CRIACAO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ID`)
 );
-
 
 CREATE TABLE `Perguntas`
 (
@@ -24,16 +22,14 @@ CREATE TABLE `Perguntas`
     FOREIGN KEY (`ID_USUARIO`) REFERENCES `Usuarios` (`ID`)
 );
 
- 
-
 CREATE TABLE `Respostas` 
 (
   ID             int  not null AUTO_INCREMENT,
-  RESPOSTA             varchar(500) NOT NULL,
+  DESCRICAO_RESPOSTA             varchar(500) NOT NULL,
   DATA_RESPOSTA             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   ID_PERGUNTA             int not null,
   ID_USUARIO             int not null,
   PRIMARY KEY (`ID`),
-  FOREIGN KEY (`ID_USUARIO`) REFERENCES `Usuarios` (`ID`),
-  FOREIGN KEY (`ID_PERGUNTA`) REFERENCES `Perguntas` (`ID`)
+  FOREIGN KEY (`ID_PERGUNTA`) REFERENCES `Perguntas` (`ID`),
+  FOREIGN KEY (`ID_USUARIO`) REFERENCES `Usuarios` (`ID`)
 );
