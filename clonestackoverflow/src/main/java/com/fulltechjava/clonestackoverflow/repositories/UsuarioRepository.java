@@ -9,5 +9,6 @@ import com.fulltechjava.clonestackoverflow.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
 	Optional<Usuario> findByIdGoogle(String idGoogle);
+	
 
 }

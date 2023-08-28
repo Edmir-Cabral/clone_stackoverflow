@@ -8,6 +8,7 @@
   <title>Stackoverflow Clone</title>
   <script src="https://accounts.google.com/gsi/client" async></script>
   <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  
   <script>
     function handleCredentialResponse(response) {
       const data = jwt_decode(response.credential)
@@ -18,8 +19,9 @@
         nome: data.name,
         data_criacao: new Date()
       };
+      
 
-      // Enviar os dados do usuï¿½rio para o backend
+      // Enviar os dados do usuario para o backend
       fetch("/logar", {
         method: "POST",
         headers: {
@@ -27,11 +29,16 @@
         },
         body: JSON.stringify(usuario)
       })
-        .then(result => {
-          alert("Bem-vindo, " + usuario.nome);
+      	.then(response => response.json())  // Analisar a resposta JSON
+        .then(data => {
+        	const token = data.token; // Extraindo o token do JSON response
+        	document.cookie = "authToken=" + token;
+            window.location.href = "http://localhost:4200"; // Redirecionar a página atual para a página Angular
+        	
         })
         .catch(error => {
-          alert("Erro ao salvar os dados do usuario:", error);
+        	console.log(error);
+          	alert("Erro ao salvar os dados do usuario:" + error);
         });
     }
 
@@ -42,9 +49,9 @@
       });
       google.accounts.id.renderButton(
         document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large" }  // customization attributes
+        { theme: "outline", size: "large" }  // atributos de personalização
       );
-      google.accounts.id.prompt(); // also display the One Tap dialog
+      //google.accounts.id.prompt(); // também exibir o One Tap dialog
     }
   </script>
 

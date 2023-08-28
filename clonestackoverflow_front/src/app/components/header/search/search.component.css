@@ -1,0 +1,27 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container i {
+    position: absolute;
+    left: 10px;
+    color: #ccc;
+  }
+  
+  .search-container input {
+    padding: 10px 10px 10px 40px;
+    border-radius: 8px;
+    border: 0.7px solid #919499;
+    background: #FFF;
+    width: 651px;
+  }
+  
+  .search-container input::placeholder {
+    color: #999;
+    padding-left: 5px;
+  }
+  

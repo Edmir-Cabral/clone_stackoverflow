@@ -1,0 +1,7 @@
+<div class="login-menu">
+  <button class="login-button" (click)="alternarMenuLogin()">Olá, {{ nomeUsuario }}!</button>
+  <div class="login-dropdown" *ngIf="menuLoginAberto">
+    <button (click)="fazerLogout()">Sair</button>
+  </div>
+</div>
+
