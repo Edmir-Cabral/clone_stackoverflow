@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,8 @@ import com.fulltechjava.clonestackoverflow.models.Pergunta;
 import com.fulltechjava.clonestackoverflow.services.PerguntaService;
 
 @RestController
-@RequestMapping("/pergunta")
+@RequestMapping("/api/perguntas")
+@CrossOrigin(origins = "*")
 public class PerguntaController {
 
 	@Autowired
@@ -33,7 +35,13 @@ public class PerguntaController {
 	public List<Pergunta> getPerguntas() {
 		return perguntaService.getAllPerguntas();
 	}
-
+	
+	@GetMapping("/{id}")
+	public Pergunta getById(@PathVariable Integer id) {
+		return perguntaService.getById(id);
+	}
+	
+	
 	@PostMapping("/")
 	public ResponseEntity<Pergunta> postPergunta(@RequestBody Pergunta pergunta) {
 		pergunta = perguntaService.postPergunta(pergunta);
