@@ -1,3 +1,4 @@
+import { PerguntaComponent } from './components/pergunta/pergunta.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,17 +7,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/header/login/login.component';
 import { SearchComponent } from './components/header/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    PerguntaComponent    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
