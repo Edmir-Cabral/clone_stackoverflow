@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fulltechjava.clonestackoverflow.api.DTO.RespostaDTO;
 import com.fulltechjava.clonestackoverflow.models.Resposta;
 import com.fulltechjava.clonestackoverflow.services.RespostaService;
 
@@ -27,18 +28,18 @@ public class RespostaController {
 	}
 	
 	@PostMapping("/respostas")
-	public Resposta post(@RequestBody Resposta resposta) {
+	public RespostaDTO post(@RequestBody RespostaDTO resposta) {
 		return _service.Save(resposta);
 	}
 	
 	
 	@GetMapping("/respostas")
-	public List<Resposta> getAll() {
+	public List<RespostaDTO> getAll() {
 		return _service.getAll();
 	}
 	
 	@GetMapping("/respostas/{id}")
-	public Resposta getById(@PathVariable Integer id) {
+	public RespostaDTO getById(@PathVariable Integer id) {
 		return _service.getById(id);
 	}
 	
@@ -47,8 +48,8 @@ public class RespostaController {
 		_service.update(id, resposta); 
 	}
 	
-	@DeleteMapping("respostas/{id}")
-	public void delete(@PathVariable Integer id) {
-		_service.delete(id);
-	}
+//	@DeleteMapping("respostas/{id}")
+//	public void delete(@PathVariable Integer id) {
+//		_service.delete(id);
+//	}
 }
