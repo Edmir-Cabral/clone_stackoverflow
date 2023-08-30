@@ -12,9 +12,11 @@ export class LoginComponent {
   menuLoginAberto = false;
 
   nomeUsuario: string | null;
+  idUsuario: string | null;
 
   constructor(public authService: AuthService) {
     this.nomeUsuario = authService.extrairNomeUsuarioDoToken();
+    this.idUsuario = authService.extrairNomeIdGoogleDoUsuario();
   }
 
   alternarMenuLogin() {

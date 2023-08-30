@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fulltechjava.clonestackoverflow.api.DTO.PerguntaDTO;
 import com.fulltechjava.clonestackoverflow.models.Pergunta;
 import com.fulltechjava.clonestackoverflow.services.PerguntaService;
 
@@ -32,24 +33,19 @@ public class PerguntaController {
 	}
 
 	@GetMapping("/")
-	public List<Pergunta> getPerguntas() {
+	public List<PerguntaDTO> getPerguntas() {
 		return perguntaService.getAllPerguntas();
 	}
 	
 	@GetMapping("/{id}")
-	public Pergunta getById(@PathVariable Integer id) {
+	public PerguntaDTO getById(@PathVariable Integer id) {
 		return perguntaService.getById(id);
 	}
 	
 	
 	@PostMapping("/")
-	public ResponseEntity<Pergunta> postPergunta(@RequestBody Pergunta pergunta) {
-		pergunta = perguntaService.postPergunta(pergunta);
-		URI uri = ServletUriComponentsBuilder.
-		fromCurrentRequest().
-		path("/{id}").
-		buildAndExpand(pergunta.getId()).toUri();
-		return ResponseEntity.created(uri).body(pergunta);
+	public PerguntaDTO postPergunta(@RequestBody PerguntaDTO pergunta) {
+		return perguntaService.postPergunta(pergunta);
 	}
 	
 	@DeleteMapping(value = "/{id}")
