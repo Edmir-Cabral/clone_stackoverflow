@@ -10,16 +10,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.0.0",
+    "@angular/animations": "^16.2.2",
     "@angular/cdk": "^16.2.1",
-    "@angular/common": "^16.0.0",
-    "@angular/compiler": "^16.0.0",
-    "@angular/core": "^16.0.0",
-    "@angular/forms": "^16.0.0",
+    "@angular/common": "^16.2.2",
+    "@angular/compiler": "^16.2.2",
+    "@angular/core": "^16.2.2",
+    "@angular/forms": "^16.2.2",
     "@angular/material": "^16.2.1",
-    "@angular/platform-browser": "^16.0.0",
-    "@angular/platform-browser-dynamic": "^16.0.0",
-    "@angular/router": "^16.0.0",
+    "@angular/platform-browser": "^16.2.2",
+    "@angular/platform-browser-dynamic": "^16.2.2",
+    "@angular/router": "^16.2.2",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@types/jwt-decode": "^3.1.0",
     "angular-jwt": "^0.1.11",
@@ -31,8 +31,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.0",
+<<<<<<< HEAD
+    "@angular/cli": "~16.2.0",
+    "@angular/compiler-cli": "^16.2.2",
+=======
     "@angular/cli": "~16.0.1",
     "@angular/compiler-cli": "^16.0.0",
+>>>>>>> c3a4d201231842084e3b0fc5be3f3620da061225
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",

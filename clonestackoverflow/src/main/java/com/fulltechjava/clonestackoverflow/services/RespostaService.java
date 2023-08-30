@@ -1,11 +1,14 @@
 package com.fulltechjava.clonestackoverflow.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fulltechjava.clonestackoverflow.api.DTO.RespostaDTO;
+import com.fulltechjava.clonestackoverflow.api.DTO.mapper.RespostaMapper;
 import com.fulltechjava.clonestackoverflow.models.Resposta;
 import com.fulltechjava.clonestackoverflow.repositories.RespostaRepository;
 
@@ -13,17 +16,27 @@ import com.fulltechjava.clonestackoverflow.repositories.RespostaRepository;
 public class RespostaService {
 
 	private RespostaRepository _repository;
+	private RespostaMapper _mapper;
 
-	public RespostaService(RespostaRepository repository) {
+	public RespostaService(RespostaRepository repository, RespostaMapper mapper) {
 		_repository = repository;
+		_mapper = mapper;
 	}
 
-	public List<Resposta> getAll() {
-		return _repository.findAll();
+	public List<RespostaDTO> getAll() {		
+		return _repository.findAll()
+				.stream()
+				.map( resposta ->{
+					return _mapper.paraDTO(resposta);
+				}).collect(Collectors.toList());
 	}
 
-	public Resposta getById(Integer id) {
-		return _repository.findById(id).orElseThrow(() -> {
+	public RespostaDTO getById(Integer id) {
+		return _repository.findById(id)
+				.map( resposta ->{
+					return _mapper.paraDTO(resposta);
+				}).
+				orElseThrow(() -> {
 			return new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
 		});
 	}
@@ -31,18 +44,18 @@ public class RespostaService {
 	public void update(Integer id, Resposta resposta) {
 		_repository.findById(id).map(respostaDb -> {
 			resposta.setId(respostaDb.getId());
-			_repository.save(resposta);
+			_mapper.paraDTO(_repository.save(resposta));
 			return respostaDb;
 		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Falha ao alterar resposta"));
 	}
 
-	public Resposta Save(Resposta resposta) {
-		return _repository.save(resposta);
+	public RespostaDTO Save(RespostaDTO resposta) {
+		return _mapper.paraDTO(_repository.save(_mapper.paraEntity(resposta)));
 	}
 
-	public void delete(Integer id) {
-		Resposta respostaId = getById(id);
-		_repository.delete(respostaId);
-	}
+//	public void delete(Integer id) {
+//		Resposta respostaId = getById(id);
+//		_repository.delete(respostaId);
+//}
 
 }
