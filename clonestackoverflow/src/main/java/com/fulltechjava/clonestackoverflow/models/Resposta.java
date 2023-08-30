@@ -48,7 +48,7 @@ public class Resposta {
 	private Date data_resposta;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID_USUARIO")
+	@JoinColumn(name = "GOOGLE_ID_USUARIO")
 	private Usuario usuario;
 	
 	@ManyToOne

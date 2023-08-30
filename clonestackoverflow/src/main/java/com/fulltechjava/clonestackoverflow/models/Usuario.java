@@ -22,29 +22,14 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(Integer id) {
-		this.id = id;
-	}
-	
-	public Usuario(String email, String idGoogle, String nome) {
-		this.email = email;
-		this.idGoogle = idGoogle;
-		this.nome = nome;
-	}
-	
-	public Usuario(Integer id, String idGoogle, String email, String nome) {
+	public Usuario(String idGoogle, String email, String nome) {
 		super();
-		this.id = id;
 		this.idGoogle = idGoogle;
 		this.email = email;
 		this.nome = nome;
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
-	private Integer id;
-	
 	@Column(name = "GOOGLE_ID")
 	private String idGoogle;
 	
@@ -64,13 +49,6 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY)
 	private List<Resposta> resposta;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getIdGoogle() {
 		return idGoogle;

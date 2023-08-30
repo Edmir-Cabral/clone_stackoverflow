@@ -3,12 +3,11 @@ USE `clonestackoverflow`;
 
  
 CREATE TABLE `Usuarios` (
-    ID int  not null AUTO_INCREMENT,
     GOOGLE_ID VARCHAR(100) NOT NULL,
     EMAIL VARCHAR(255) NOT NULL,
     NOME VARCHAR(100),
     DATA_CRIACAO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`ID`)
+    PRIMARY KEY (`GOOGLE_ID`)
 );
 
 CREATE TABLE `Perguntas`
@@ -17,9 +16,9 @@ CREATE TABLE `Perguntas`
     TITULO_PERGUNTA                  varchar(500) not null,
     DESCRICAO_PERGUNTA       varchar(500) not null,
     DATA_PERGUNTA            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ID_USUARIO             int not null,
+    GOOGLE_ID_USUARIO             VARCHAR(100) not null,
     PRIMARY KEY (`ID`),
-    FOREIGN KEY (`ID_USUARIO`) REFERENCES `Usuarios` (`ID`)
+    FOREIGN KEY (`GOOGLE_ID_USUARIO`) REFERENCES `Usuarios` (`GOOGLE_ID`)
 );
 
 CREATE TABLE `Respostas` 
@@ -28,8 +27,8 @@ CREATE TABLE `Respostas`
   DESCRICAO_RESPOSTA             varchar(500) NOT NULL,
   DATA_RESPOSTA             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   ID_PERGUNTA             int not null,
-  ID_USUARIO             int not null,
+  GOOGLE_ID_USUARIO             VARCHAR(100) not null,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`ID_PERGUNTA`) REFERENCES `Perguntas` (`ID`),
-  FOREIGN KEY (`ID_USUARIO`) REFERENCES `Usuarios` (`ID`)
+  FOREIGN KEY (`GOOGLE_ID_USUARIO`) REFERENCES `Usuarios` (`GOOGLE_ID`)
 );

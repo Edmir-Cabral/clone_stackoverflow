@@ -1,8 +1,10 @@
-import { Resposta } from './model/resposta.model';
+
 import { RespostaService } from './../../services/resposta.service';
 import { PerguntaService } from './../../services/pergunta.service';
 import { Component, OnInit } from '@angular/core';
-import { Pergunta } from './model/pergunta.model';
+import { Pergunta } from 'src/app/models/pergunta.model';
+import { Resposta } from 'src/app/models/resposta.model';
+
 
 
 @Component({

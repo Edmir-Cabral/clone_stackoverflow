@@ -53,7 +53,7 @@ public class Pergunta {
 	private Date data_pergunta;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_USUARIO")
+	@JoinColumn(name = "GOOGLE_ID_USUARIO")
 	private Usuario usuario;
 
 	@OneToMany(mappedBy = "pergunta")
