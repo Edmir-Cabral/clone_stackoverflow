@@ -9,6 +9,7 @@ import { LoginComponent } from './components/header/login/login.component';
 import { SearchComponent } from './components/header/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { FormPerguntaComponent } from './components/form-pergunta/form-pergunta.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MatListModule } from '@angular/material/list';
     HeaderComponent,
     LoginComponent,
     SearchComponent,
-    PerguntaComponent    
+    PerguntaComponent,
+    FormPerguntaComponent    
   ],
   imports: [
     BrowserModule,

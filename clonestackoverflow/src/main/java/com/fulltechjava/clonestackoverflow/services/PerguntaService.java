@@ -1,14 +1,12 @@
 package com.fulltechjava.clonestackoverflow.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fulltechjava.clonestackoverflow.models.Pergunta;
-import com.fulltechjava.clonestackoverflow.models.Resposta;
 import com.fulltechjava.clonestackoverflow.repositories.PerguntaRepository;
 
 @Service
