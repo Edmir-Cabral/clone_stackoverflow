@@ -64,7 +64,6 @@ public class Pergunta {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}

@@ -36,6 +36,7 @@ public class PerguntaService {
 
 
 	public PerguntaDTO getById(Integer id) {
+		
 	return perguntaRepository.findById(id)
 			.map( pergunta ->{
 				return mapper.paraDTO(pergunta);

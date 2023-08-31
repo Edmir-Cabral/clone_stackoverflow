@@ -13,8 +13,10 @@ public class PerguntaMapper {
 	public PerguntaDTO paraDTO(Pergunta pergunta) {
 		return new PerguntaDTO(pergunta.getId(), 
 				pergunta.getTitulo_pergunta(),
-				pergunta.getDescricao_pergunta(), pergunta.getData_pergunta(),
-				pergunta.getUsuario());
+				pergunta.getDescricao_pergunta(),
+				pergunta.getData_pergunta(),
+				pergunta.getUsuario(),
+				pergunta.getRespostas());
 	}
 	
 	

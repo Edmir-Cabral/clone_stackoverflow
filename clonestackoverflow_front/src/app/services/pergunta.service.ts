@@ -19,4 +19,6 @@ export class PerguntaService {
     const url = `${this.baseUrl}${id}`
     return this.http.get<Pergunta>(url);
   }
+
+  
 }

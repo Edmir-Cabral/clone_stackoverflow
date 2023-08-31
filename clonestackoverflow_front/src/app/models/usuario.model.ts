@@ -6,6 +6,6 @@ export interface Usuario {
     email: String;
     nome: String;
     data_criacao: Date;
-    pergunta: Pergunta;
-    resposta: Resposta;
+    perguntas: Pergunta[];
+    respostas: Resposta[];
 }
