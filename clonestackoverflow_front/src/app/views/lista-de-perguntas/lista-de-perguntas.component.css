@@ -37,6 +37,7 @@
     font-size: 27px;
     line-height: 32.68px;
     color: #000000;
+   
 }
 
 .topo {
@@ -100,6 +101,7 @@
     font-family: Hannari;
     font-size: 28px;
     color: #1170B9;
+    cursor: pointer;
 }
 
 .perguntaDescricao {
