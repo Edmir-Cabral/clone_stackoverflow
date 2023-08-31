@@ -3,15 +3,12 @@ import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  
   isLoggedIn: boolean;
 
-  
   constructor(private cookieService: CookieService) {
-
     this.isLoggedIn = this.cookieService.check('authToken');
   }
 
@@ -20,6 +17,15 @@ export class AuthService {
     if (token) {
       const decodificarToken: any = jwt_decode(token);
       return decodificarToken.username;
+    }
+    return null;
+  }
+
+  extrairNomeIdGoogleDoUsuario(): string | null {
+    const token = this.cookieService.get('authToken');
+    if (token) {
+      const decodificarToken: any = jwt_decode(token);
+      return decodificarToken.sub;
     }
     return null;
   }

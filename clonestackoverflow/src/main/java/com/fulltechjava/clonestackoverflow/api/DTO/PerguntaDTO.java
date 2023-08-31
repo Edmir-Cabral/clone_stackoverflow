@@ -15,6 +15,5 @@ public record PerguntaDTO(
 		String descricao_pergunta,
 		Date data_pergunta,
 		Usuario usuario,
-		List<Resposta> respostas
-		)
+		List<Resposta> respostas)
 {}

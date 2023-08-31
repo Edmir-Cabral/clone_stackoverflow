@@ -15,13 +15,14 @@
 <mat-list class="example-list-wrapping" *ngFor="let pergunta of perguntas">
     <mat-divider></mat-divider>
     <mat-list-item lines="3">
-        <span class="perguntaTitulo" matListItemTitle>{{pergunta.titulo_pergunta}}</span>
+        <span [routerLink]="['/pergunta', pergunta.id]" span class="perguntaTitulo" matListItemTitle>{{pergunta.titulo_pergunta}}</span>
         <span class="perguntaDescricao">{{pergunta.descricao_pergunta}}</span>
+        
     </mat-list-item>
     <div class="dadosUsuario">
         <span class="usuarioPergunta">{{pergunta.usuario.nome}}</span>
         <span class="dataPergunta">{{pergunta.data_pergunta}}</span>
-        <span></span>  
+        <span></span>
     </div>
 </mat-list>
 </div>
