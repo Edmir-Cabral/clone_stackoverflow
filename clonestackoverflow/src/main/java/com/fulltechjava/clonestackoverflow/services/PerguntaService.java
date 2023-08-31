@@ -64,4 +64,9 @@ public class PerguntaService {
 		entity.setDescricao_pergunta(pergunta.getDescricao_pergunta());
 		entity.setData_pergunta(pergunta.getData_pergunta());	
 	}
+	
+	public List<Pergunta> searchPerguntasPorTitulo(String titulo){
+		return perguntaRepository.findBytituloPerguntaContaining(titulo);
+	}
+	
 }		

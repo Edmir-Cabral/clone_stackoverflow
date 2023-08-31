@@ -22,7 +22,6 @@ import com.fulltechjava.clonestackoverflow.services.RespostaService;
 @CrossOrigin(origins = "*")
 public class RespostaController {
 
-	@Autowired
 	private RespostaService _service;
 	
 	public RespostaController(RespostaService service) {

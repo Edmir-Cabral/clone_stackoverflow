@@ -19,4 +19,9 @@ export class PerguntaService {
     const url = `${this.baseUrl}${id}`
     return this.http.get<Pergunta>(url);
   }
+
+  buscaPorTitulo(titulo?: String): Observable<Pergunta>{
+    const url = `${this.baseUrl}titulo?tituloPergunta=${titulo}`
+    return this.http.get<Pergunta>(url);
+  }
 }

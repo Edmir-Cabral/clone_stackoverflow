@@ -1,8 +1,9 @@
 package com.fulltechjava.clonestackoverflow.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,15 +27,13 @@ public class Pergunta {
 	}	
 	
 
-	public Pergunta( String titulo_pergunta, String descricao_pergunta, Usuario usuario) {
+	public Pergunta( String tituloPergunta, String descricao_pergunta, Usuario usuario) {
 		super();
 		
-		this.titulo_pergunta = titulo_pergunta;
+		this.tituloPergunta = tituloPergunta;
 		this.descricao_pergunta = descricao_pergunta;
 		this.usuario = usuario;
 	}
-
-
 
 	public Pergunta(String descricao_pergunta) {
 		this.descricao_pergunta = descricao_pergunta;
@@ -44,26 +45,26 @@ public class Pergunta {
 	private Integer id;
 
 	@Column(name = "TITULO_PERGUNTA")
-	private String titulo_pergunta;
+	private String tituloPergunta;
 
 	@Column(name = "DESCRICAO_PERGUNTA")
 	private String descricao_pergunta;
 
 	@Column(name = "DATA_PERGUNTA")
+	//@Temporal(TemporalType.TIMESTAMP)
 	private Date data_pergunta;
 
 	@ManyToOne
 	@JoinColumn(name = "GOOGLE_ID_USUARIO")
 	private Usuario usuario;
 
-	@OneToMany(mappedBy = "pergunta")
-	@JsonIgnore
+	@OneToMany(mappedBy = "pergunta", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Resposta> respostas;
 
 	public Integer getId() {
 		return id;
 	}
-
+	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -71,12 +72,12 @@ public class Pergunta {
 
 
 	public String getTitulo_pergunta() {
-		return titulo_pergunta;
+		return tituloPergunta;
 	}
 
 
 	public void setTitulo_pergunta(String titulo_pergunta) {
-		this.titulo_pergunta = titulo_pergunta;
+		this.tituloPergunta = titulo_pergunta;
 	}
 
 

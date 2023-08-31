@@ -4,5 +4,6 @@ export interface Pergunta{
     titulo_pergunta: String;
     descricao_pergunta: String;
     data_pergunta: Date;
-    usuario: Usuario;        
+    usuario: Usuario;  
+    pergunta: [];      
 }

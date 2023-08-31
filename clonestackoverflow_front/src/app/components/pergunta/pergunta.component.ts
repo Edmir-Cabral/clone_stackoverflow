@@ -14,25 +14,30 @@ import { Resposta } from 'src/app/models/resposta.model';
 })
 
 export class PerguntaComponent implements OnInit {
-  constructor(private perguntaService: PerguntaService, private respostaService: RespostaService) {
-    this.perguntaService.read().subscribe(res => { this.perguntas = res })
-    this.respostaService.read().subscribe(res => { this.respostas = res })
+  constructor(private perguntaService: PerguntaService) {
+    this.perguntaService.read().subscribe(res => { this.perguntas = res })   
   }
   perguntas: Pergunta[] = [];
   respostas: Resposta[] = [];
-
+  padrao!: String;
+  titulo: any [] = [];
+  buscarTitulo!: String;
+  test = "test";
   ngOnInit(): void {
 
   };
+
+  buscaPergunta(): void{
+    this.perguntaService.buscaPorTitulo(this.test).subscribe(res => {
+      console.log(res);
+    })
+  }
 
   getPerguntas(): void {
     this.perguntaService.read().subscribe(res => { this.perguntas = res, console.log(res);
     })
   }
 
-  buscaPergunta(): void{
-    
-  }
 
   getRespondidas(): void{
 
