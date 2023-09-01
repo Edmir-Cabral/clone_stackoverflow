@@ -1,19 +1,17 @@
-import { ListaDePerguntasComponent } from './views/lista-de-perguntas/lista-de-perguntas.component';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ListaDePerguntasComponent } from './views/lista-de-perguntas/lista-de-perguntas.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/header/login/login.component';
 import { SearchComponent } from './components/header/search/search.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MatListModule } from '@angular/material/list';
-<<<<<<< HEAD
-import { FormPerguntaComponent } from './components/form-pergunta/form-pergunta.component';
-=======
+import { FormPerguntaComponent } from './views/form-pergunta/form-pergunta.component';
 import { PerguntaComponent } from './views/pergunta/pergunta.component';
->>>>>>> 75e0fe942a26c50c16b3dad02025da946c858e8b
 
 @NgModule({
   declarations: [
@@ -21,21 +19,18 @@ import { PerguntaComponent } from './views/pergunta/pergunta.component';
     HeaderComponent,
     LoginComponent,
     SearchComponent,
-<<<<<<< HEAD
-    PerguntaComponent,
-    FormPerguntaComponent    
-=======
     ListaDePerguntasComponent,
-    PerguntaComponent    
->>>>>>> 75e0fe942a26c50c16b3dad02025da946c858e8b
+    FormPerguntaComponent,
+    PerguntaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

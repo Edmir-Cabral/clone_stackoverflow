@@ -1,11 +1,8 @@
 package com.fulltechjava.clonestackoverflow.services;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Optional;
 import java.util.stream.Collectors;
->>>>>>> 75e0fe942a26c50c16b3dad02025da946c858e8b
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

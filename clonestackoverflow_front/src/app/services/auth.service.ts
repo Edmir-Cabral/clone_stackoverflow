@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from 'jwt-decode';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,13 +21,10 @@ export class AuthService {
     return null;
   }
 
-  extrairNomeIdGoogleDoUsuario(): string | null {
+  extrairNomeIdGoogleDoUsuario(): string {
     const token = this.cookieService.get('authToken');
-    if (token) {
-      const decodificarToken: any = jwt_decode(token);
-      return decodificarToken.sub;
-    }
-    return null;
+    const decodificarToken: any = jwt_decode(token);
+    return decodificarToken.sub;
   }
 
   logout() {

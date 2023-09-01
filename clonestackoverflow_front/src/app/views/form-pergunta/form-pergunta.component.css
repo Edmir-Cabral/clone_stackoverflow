@@ -55,4 +55,9 @@ textarea#descricao {
 
   border: none;
   border-radius: 10px;
+
+  cursor: pointer;
+}
+.btn-enviar:disabled {
+  background-color: #919191;
 }
