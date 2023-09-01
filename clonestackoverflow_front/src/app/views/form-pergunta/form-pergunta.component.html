@@ -1,0 +1,22 @@
+<div class="nova-pergunta">
+  <h1>Faça sua pergunta</h1>
+
+  <form #form="ngForm" (ngSubmit)="enviarPergunta(form)" class="form-pergunta">
+    <section class="box-titulo">
+      <h2>Título</h2>
+      <p>Seja específico e imagine você perguntando para outra pessoa.</p>
+      <input class="titulo" type="text" placeholder="Qual a sua pergunta de programação?"
+        [(ngModel)]="pergunta.titulo_pergunta" name="titulo_pergunta" required>
+    </section>
+
+    <section class="box-descricao">
+      <h2>Descrição</h2>
+      <p>Inclua todas as informações que alguém precise para responder sua pergunta.</p>
+      <textarea name="descricao" id="descricao" rows="10" aria-setsize="false" [(ngModel)]="pergunta.descricao_pergunta"
+        name="descricao_pergunta" required></textarea>
+    </section>
+
+    <button type="submit" class="btn-enviar" [disabled]="form.invalid">Enviar Pergunta</button>
+  </form>
+
+</div>

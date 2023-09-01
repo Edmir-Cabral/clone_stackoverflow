@@ -1,27 +1,23 @@
-<app-header></app-header>
 <div class="container">
-    <div class="pergunta">
-        <div *ngIf="pergunta">
-    
-            <div class="titulo">
-                {{ pergunta.titulo_pergunta }}
-            </div>
-    
-            <div class="detalhes">
-                <p id="data">{{pergunta.data_pergunta}}</p>
-                <p id="quantidade">
-                    {{ pergunta.respostas.length }}
-                    {{ pergunta.respostas.length === 1 ? 'resposta' : 'respostas' }}
-                </p>
-                <p id="usuario">{{pergunta.usuario.nome}}</p>
-            </div>
-    
-            <div class="descricao">
-                {{ pergunta.descricao_pergunta }}
-            </div>
-        </div>
+  <div class="pergunta">
+    <div *ngIf="pergunta">
+
+      <div class="titulo">
+        {{ pergunta.titulo_pergunta }}
+      </div>
+
+      <div class="detalhes">
+        <p id="data">{{pergunta.data_pergunta}}</p>
+        <p id="quantidade">
+          {{ pergunta.respostas.length }}
+          {{ pergunta.respostas.length > 1 ? 'respostas' : 'resposta' }}
+        </p>
+        <p id="usuario">{{pergunta.usuario.nome}}</p>
+      </div>
+
+      <div class="descricao">
+        {{ pergunta.descricao_pergunta }}
+      </div>
     </div>
+  </div>
 </div>
-
-
-  

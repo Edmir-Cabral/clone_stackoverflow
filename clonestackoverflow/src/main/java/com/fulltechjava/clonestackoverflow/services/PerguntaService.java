@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fulltechjava.clonestackoverflow.api.DTO.PerguntaDTO;
 import com.fulltechjava.clonestackoverflow.api.DTO.mapper.PerguntaMapper;
 import com.fulltechjava.clonestackoverflow.models.Pergunta;
-import com.fulltechjava.clonestackoverflow.models.Resposta;
 import com.fulltechjava.clonestackoverflow.repositories.PerguntaRepository;
 
 @Service
