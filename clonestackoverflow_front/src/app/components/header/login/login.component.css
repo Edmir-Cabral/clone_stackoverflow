@@ -1,16 +1,15 @@
 .login-menu {
   position: relative;
-  display: inline-block;
 }
-  
+
 .login-button {
   width: 153px;
   height: 34px;
   border: none;
   cursor: pointer;
   border-radius: 11px;
-  background: #0A95FF;
-  color: #FFF;
+  background: #0a95ff;
+  color: #fff;
   text-align: center;
   font-family: Inter;
   font-size: 12px;
@@ -18,7 +17,7 @@
   font-weight: 500;
   line-height: normal;
 }
-  
+
 .login-dropdown {
   position: absolute;
   top: 100%;
@@ -30,7 +29,7 @@
   flex-direction: column;
   width: 153px;
 }
-  
+
 .login-dropdown button {
   background: none;
   border: none;
@@ -38,8 +37,7 @@
   text-align: left;
   cursor: pointer;
 }
-  
+
 .login-dropdown button:hover {
-    background-color: #f2f2f2;
-  }
-  
+  background-color: #f2f2f2;
+}
