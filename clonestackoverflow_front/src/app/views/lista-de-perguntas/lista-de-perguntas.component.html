@@ -1,11 +1,12 @@
-<app-header (onClick)="buscaPergunta()"></app-header>
 <div class="container">
   <div class="inicial">
     <h3 class="titulo">Todas as Perguntas</h3>
     <button routerLink="/nova-pergunta" class="novaPergunta">Fazer Pergunta</button>
   </div>
   <div class="topo">
-    <h2 class="total">{{perguntas.length}} de perguntas</h2>
+    <h2 class="total">
+      {{ perguntas.length }}
+      {{ perguntas.length > 1 ? 'perguntas' : 'pergunta' }} </h2>
     <div>
       <button class="botaoEsquerdo filtro selecionado" (click)="getPerguntas()">Todas</button>
       <button class="botaoCentro filtro" (click)="getRespondidas()">Respondidas</button>

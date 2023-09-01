@@ -1,152 +1,160 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-.container{
-    margin-left: 556px;
-    margin-top: 50px;
+.container {
+  width: 90%;
+  max-width: 50rem;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 .inicial {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 795px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 795px;
 }
 
 .novaPergunta {
-    width: 154px;
-    height: 40px;
-    top: 93px;
-    left: 850px;
-    border-radius: 11px;
-    background-color: #0A95FF;
-    color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: center;
+  width: 154px;
+  height: 40px;
+  top: 93px;
+  left: 850px;
+  border-radius: 11px;
+  background-color: #0a95ff;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  cursor: pointer;
+  border: none;
 }
 
 .titulo {
-    font-family: 'Inter', sans-serif;
-    width: 257px;
-    height: 33px;
-    top: 93px;
-    left: 276px;
-    font-weight: 600;
-    font-size: 27px;
-    line-height: 32.68px;
-    color: #000000;
-   
+  font-family: "Inter", sans-serif;
+  width: 257px;
+  height: 33px;
+  top: 93px;
+  left: 276px;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 32.68px;
+  color: #000000;
 }
 
 .topo {
-    display: flex;
-    max-width: 795px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  max-width: 795px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .botaoEsquerdo {
-    width: 62px;
-    height: 40px;
-    top: 170px;
-    left: 724px;
-    border-radius: 11px 0px 0px 11px;
-    border: 1px;
+  width: 62px;
+  height: 40px;
+  top: 170px;
+  left: 724px;
+  border-radius: 11px 0px 0px 11px;
+  border: 1px;
 }
 
-
 .botaoCentro {
-    width: 102px;
-    height: 40px;
-    top: 170px;
-    left: 724px;
-    border: 1px;
+  width: 102px;
+  height: 40px;
+  top: 170px;
+  left: 724px;
+  border: 1px;
 }
 
 .botaoDireito {
-    width: 122px;
-    height: 40px;
-    top: 170px;
-    left: 724px;
-    border-radius: 0px 11px 11px 0px;
-    border: 1px;
+  width: 122px;
+  height: 40px;
+  top: 170px;
+  left: 724px;
+  border-radius: 0px 11px 11px 0px;
+  border: 1px;
 }
 
 .selecionado {
-    background-color: #919499;
+  background-color: #919499;
 }
 
 .total {
-    font-family: 'Inter', sans-serif;
-    width: 285px;
-    height: 30px;
-    top: 173px;
-    left: 276px;
-    color: #919499;
+  font-family: "Inter", sans-serif;
+  width: 285px;
+  height: 30px;
+  top: 173px;
+  left: 276px;
+  color: #919499;
 }
 
 .pergunta {
-    width: 791px;
-    height: 146px;
-    top: 221px;
-    left: 244px;
-    border: 0px, 0px, 1px, 0px;
+  width: 791px;
+  height: 146px;
+  top: 221px;
+  left: 244px;
+  border: 0px, 0px, 1px, 0px;
 }
 
 .perguntaTitulo {
-    height: 61px;
-    width: 574px;
-    font-family: Hannari;
-    font-size: 28px;
-    color: #1170B9;
-    cursor: pointer;
+  height: 61px;
+  width: 574px;
+  font-family: Hannari;
+  font-size: 28px;
+  color: #1170b9;
+  cursor: pointer;
 }
 
 .perguntaDescricao {
-    width: 691px;
-    height: 36px;
-    top: 275px;
-    left: 294px;
-    font-family: Hannari;
-    font-weight: 400px;
-    font-size: 22px;
-    line-height: 18px;
+  width: 691px;
+  height: 36px;
+  top: 275px;
+  left: 294px;
+  font-family: Hannari;
+  font-weight: 400px;
+  font-size: 22px;
+  line-height: 18px;
 }
 
 .example-list-wrapping {
-    max-width: 795px;
+  max-width: 795px;
 }
 
 .dadosUsuario {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .usuarioPergunta {
-    width: 68px;
-    height: 18px;
-    top: 319px;
-    left: 841px;
-    color: #1170B9;
-    font-family: Hannari;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  width: 68px;
+  height: 18px;
+  top: 319px;
+  left: 841px;
+  color: #1170b9;
+  font-family: Hannari;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .dataPergunta {
-    width: 64px;
-    height: 18px;
-    color: #636363;
-    Top: 319px;
-    Left: 921px;
-    font-family: Hannari;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  width: 64px;
+  height: 18px;
+  color: #636363;
+  top: 319px;
+  left: 921px;
+  font-family: Hannari;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 1030px) {
+  .container {
+    margin-top: 100px;
+  }
 }

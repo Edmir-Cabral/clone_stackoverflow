@@ -1,6 +1,6 @@
 .nova-pergunta {
-  border-top: 1.5px solid #919191;
   padding: 2rem 1rem;
+  margin-top: 20px;
 }
 
 h1 {
@@ -60,4 +60,10 @@ textarea#descricao {
 }
 .btn-enviar:disabled {
   background-color: #919191;
+}
+
+@media (max-width: 1030px) {
+  .nova-pergunta {
+    margin-top: 80px;
+  }
 }
