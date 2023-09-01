@@ -1,0 +1,21 @@
+<div class="container">
+<div class="todas-respostas-container">
+  <div class="todas-respostas-conteudo" style="display: flex; flex-direction: column;"
+    *ngFor="let pergunta of pergunta.respostas">
+    <div class="todas-respostas-esquerda">
+      <div class="todas-opcoes">
+        <p class="arrow">⇧</p>
+        <p class="arrow">0</p>
+        <p class="arrow">⇩</p>
+      </div>
+    </div>
+    <div class="respostas-descricao">
+      <span>{{ pergunta.descricao_resposta }}</span>
+    </div>
+    <div class="resposta-resto">
+      <span>{{ pergunta.data_resposta }}</span>
+      <span> {{ pergunta.usuario.nome}} </span>
+    </div>
+  </div>
+</div>
+</div>

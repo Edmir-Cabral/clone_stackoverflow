@@ -27,6 +27,7 @@ export class PerguntaComponent implements OnInit, OnDestroy {
           next: (pergunta: Pergunta) => {
             this.pergunta = pergunta;
             this.isLoading = false;
+            console.log(this.pergunta);
           },
           error: error => {
             console.error(error);

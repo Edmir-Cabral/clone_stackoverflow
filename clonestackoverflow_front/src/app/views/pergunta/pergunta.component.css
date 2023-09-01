@@ -14,7 +14,7 @@
     left: 244px;
     border: 0px 0px 1px 0px;
     border-bottom: 1px solid #919499
-    
+
 }
 
 .titulo {
@@ -54,4 +54,21 @@
 
 .detalhes #usuario {
     color: #1170B9ed;
+}
+
+
+.respostas{
+  margin-top: auto;
+  margin-top: 20px;
+}
+
+.resposta-resto{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.respostas-descricao{
+  display: flex;
+  justify-content:baseline;
 }

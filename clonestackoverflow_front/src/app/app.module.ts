@@ -10,6 +10,7 @@ import { SearchComponent } from './components/header/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { PerguntaComponent } from './views/pergunta/pergunta.component';
+import { RespostaComponent } from './views/resposta/resposta.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PerguntaComponent } from './views/pergunta/pergunta.component';
     LoginComponent,
     SearchComponent,
     ListaDePerguntasComponent,
-    PerguntaComponent    
+    PerguntaComponent,
+    RespostaComponent    
   ],
   imports: [
     BrowserModule,
