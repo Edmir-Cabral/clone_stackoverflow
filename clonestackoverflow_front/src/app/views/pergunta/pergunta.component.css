@@ -59,3 +59,20 @@
     margin-top: 100px;
   }
 }
+
+
+.respostas{
+  margin-top: auto;
+  margin-top: 20px;
+}
+
+.resposta-resto{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.respostas-descricao{
+  display: flex;
+  justify-content:baseline;
+}
