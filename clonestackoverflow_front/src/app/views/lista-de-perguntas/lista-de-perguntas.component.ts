@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { SharedDataService } from './../../services/shared-data.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Pergunta } from 'src/app/models/pergunta.model';
-import { Resposta } from 'src/app/models/resposta.model';
 import { PerguntaService } from '../../services/pergunta.service';
-import { RespostaService } from '../../services/resposta.service';
 
 @Component({
   selector: 'app-lista-de-perguntas',
@@ -10,20 +9,14 @@ import { RespostaService } from '../../services/resposta.service';
   styleUrls: ['./lista-de-perguntas.component.css'],
 })
 export class ListaDePerguntasComponent implements OnInit {
-  constructor(
-    private perguntaService: PerguntaService,
-    private respostaService: RespostaService
-  ) {
+
+  constructor(private perguntaService: PerguntaService, public SharedDataService: SharedDataService) {
     this.perguntaService.read().subscribe((res) => {
       this.perguntas = res;
-    });
-    this.respostaService.read().subscribe((res) => {
-      this.respostas = res;
-    });
+    });   
   }
 
   perguntas: Pergunta[] = [];
-  respostas: Resposta[] = [];
 
   ngOnInit(): void {}
 
@@ -38,4 +31,5 @@ export class ListaDePerguntasComponent implements OnInit {
   getRespondidas(): void {}
 
   getNaoRespondidas(): void {}
+
 }

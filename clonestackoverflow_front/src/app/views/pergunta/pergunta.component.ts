@@ -25,7 +25,7 @@ export class PerguntaComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private perguntaService: PerguntaService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -42,7 +42,6 @@ export class PerguntaComponent implements OnInit, OnDestroy {
 
               this.isLoading = false;
             },
-
             error: (error) => {
               console.error(error);
 
