@@ -35,7 +35,7 @@ export class PerguntaComponent implements OnInit, OnDestroy {
         this.perguntaId = +idParam;
 
         this.subscription = this.perguntaService
-          .readById(this.perguntaId)
+          .buscarPorId(this.perguntaId)
           .subscribe({
             next: (pergunta: Pergunta) => {
               this.pergunta = pergunta;

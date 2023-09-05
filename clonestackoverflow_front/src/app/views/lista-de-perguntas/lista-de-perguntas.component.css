@@ -6,6 +6,7 @@
   margin: 0 auto;
   margin-top: 50px;
 }
+
 .inicial {
   display: flex;
   justify-content: space-between;
@@ -146,6 +147,16 @@
   color: #636363;
   top: 319px;
   left: 921px;
+  font-family: Hannari;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.quantidadeResposta {
+  width: 61px;
+  color: #636363;
   font-family: Hannari;
   font-size: 12px;
   font-style: normal;

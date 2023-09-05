@@ -1,6 +1,6 @@
-import { SharedDataService } from './../../services/shared-data.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pergunta } from 'src/app/models/pergunta.model';
+import { SharedService } from 'src/app/services/shared.service';
 import { PerguntaService } from '../../services/pergunta.service';
 
 @Component({
@@ -10,26 +10,43 @@ import { PerguntaService } from '../../services/pergunta.service';
 })
 export class ListaDePerguntasComponent implements OnInit {
 
-  constructor(private perguntaService: PerguntaService, public SharedDataService: SharedDataService) {
-    this.perguntaService.read().subscribe((res) => {
-      this.perguntas = res;
-    });   
-  }
-
   perguntas: Pergunta[] = [];
-
-  ngOnInit(): void {}
-
-  getPerguntas(): void {
-    this.perguntaService.read().subscribe((res) => {
-      (this.perguntas = res), console.log(res);
+  mostrarComRespostas = false;
+  ngOnInit() {
+    this.sharedService.searchResults$.subscribe((resultados: Pergunta[]) => {
+      this.perguntas = resultados;
     });
+    this.buscarTodasPerguntas();
   }
 
-  buscaPergunta(): void {}
+  constructor(private perguntaService: PerguntaService, private sharedService: SharedService) { }
 
-  getRespondidas(): void {}
+  buscarTodasPerguntas() {
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = resultados;
+    })
+  }
 
-  getNaoRespondidas(): void {}
+  buscarRespondidas() {
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = []
+      for (let resultado of resultados) {
+        if (resultado.respostas?.length != 0) {
+          this.perguntas.push(resultado)
+          console.log(this.perguntas);
+        }
+      }
+    })
+  }
 
+  buscarNaoRespondidas(){
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = []
+      for (let resultado of resultados) {
+        if (resultado.respostas?.length == 0) {
+          this.perguntas.push(resultado)
+        }
+      }
+    })
+  }
 }

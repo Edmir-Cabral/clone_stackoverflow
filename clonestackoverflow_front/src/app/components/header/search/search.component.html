@@ -1,7 +1,4 @@
 <div class="search-container">
-    <!-- <input [(ngModel)]="valorDigitado" (keyup.enter)="capturaValor()" type="text" placeholder="Pesquisar..."> -->
-    <input (keyup.enter)="shareValue($event)" [(ngModel)]="inputValue"  type="text" placeholder="Pesquisar...">
+<input id="searchInput" [(ngModel)]="searchTerm" (keyup.enter)="search()" type="text" placeholder="Pesquisar...">
     <i class="fas fa-search"></i>
 </div>
-  
-
