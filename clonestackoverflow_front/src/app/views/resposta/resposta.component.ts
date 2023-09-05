@@ -53,7 +53,7 @@ export class RespostaComponent implements OnInit {
     this.listagemInicialDeRespostas();
     this.perguntas = this.respostaService.read();
     this.perguntaService
-      .readById(this.perguntaId)
+      .buscarPorId(this.perguntaId)
      .subscribe((resp) => (console.log('FILIPE ',this.perguntas = resp)));
   }
 
@@ -68,7 +68,7 @@ export class RespostaComponent implements OnInit {
       this.respostaService.readById(this.perguntaId).subscribe(( res ) => {console.log('RESPOSTA', res.pergunta)});
 
 
-      this.perguntaService.readById(this.perguntaId).subscribe(( res ) => {console.log('PERGUNTA',res.id)});
+      this.perguntaService.buscarPorId(this.perguntaId).subscribe(( res ) => {console.log('PERGUNTA',res.id)});
 
       console.log('PERGUNTA ID=', this.perguntaId);
     });
