@@ -23,6 +23,7 @@ import { RespostaComponent } from './views/resposta/resposta.component';
     ListaDePerguntasComponent,
     FormPerguntaComponent,
     PerguntaComponent,
+    RespostaComponent
   ],
   imports: [
     BrowserModule,

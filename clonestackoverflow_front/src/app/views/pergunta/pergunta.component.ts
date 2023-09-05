@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { PerguntaService } from 'src/app/services/pergunta.service';
   styleUrls: ['./pergunta.component.css'],
 })
 export class PerguntaComponent implements OnInit, OnDestroy {
-  perguntaId: number | undefined;
+  @Output() perguntaId: number;
   pergunta: Pergunta | any;
   isLoading = true;
 
