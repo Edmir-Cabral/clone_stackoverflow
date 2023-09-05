@@ -15,14 +15,14 @@ export class PerguntaService {
     return this.http.get<Pergunta[]>(this.baseUrl);
   }
 
-  buscarPorId(id?: number): Observable<Pergunta> {
+  buscarPorId(id: number): Observable<Pergunta> {
     const url = `${this.baseUrl}${id}`;
     return this.http.get<Pergunta>(url);
   }
 
-  buscaPorTitulo(titulo?: String): Observable<Pergunta>{
+  buscaPorTitulo(titulo: String): Observable<Pergunta[]>{
     const url = `${this.baseUrl}titulo?tituloPergunta=${titulo}`
-    return this.http.get<Pergunta>(url);
+    return this.http.get<Pergunta[]>(url);
   }
 
   cadastrarPergunta(pergunta: CadastroPergunta): Observable<Pergunta> {

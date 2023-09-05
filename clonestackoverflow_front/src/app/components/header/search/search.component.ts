@@ -16,12 +16,12 @@ export class SearchComponent {
 
   search() {
     if (this.searchTerm.length > 0) {
-      this.perguntaService.buscaPorTitulo(this.searchTerm).subscribe((resultados: any) => {
+      this.perguntaService.buscaPorTitulo(this.searchTerm).subscribe((resultados: Pergunta[]) => {
         this.sharedService.setSearchResults(resultados); // Atualiza os resultados no serviço compartilhado
         //console.log(resultados);
       });
     } else {
-      this.perguntaService.todasPerguntas().subscribe((resultados: any) => {
+      this.perguntaService.todasPerguntas().subscribe((resultados: Pergunta[]) => {
         this.sharedService.setSearchResults(resultados);
        // console.log(resultados);
       });
