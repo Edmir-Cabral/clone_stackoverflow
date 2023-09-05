@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pergunta } from 'src/app/models/pergunta.model';
-import { Resposta } from 'src/app/models/resposta.model';
+import { SharedService } from 'src/app/services/shared.service';
 import { PerguntaService } from '../../services/pergunta.service';
-import { RespostaService } from '../../services/resposta.service';
 
 @Component({
   selector: 'app-lista-de-perguntas',
@@ -10,32 +9,45 @@ import { RespostaService } from '../../services/resposta.service';
   styleUrls: ['./lista-de-perguntas.component.css'],
 })
 export class ListaDePerguntasComponent implements OnInit {
-  constructor(
-    private perguntaService: PerguntaService,
-    private respostaService: RespostaService
-  ) {
-    this.perguntaService.read().subscribe((res) => {
-      this.perguntas = res;
-    });
-    this.respostaService.read().subscribe((res) => {
-      this.respostas = res;
-    });
-  }
 
   perguntas: Pergunta[] = [];
-  respostas: Resposta[] = [];
-
-  ngOnInit(): void {}
-
-  getPerguntas(): void {
-    this.perguntaService.read().subscribe((res) => {
-      (this.perguntas = res), console.log(res);
+  mostrarComRespostas = false;
+  
+  constructor(private perguntaService: PerguntaService, private sharedService: SharedService) { }
+  
+  ngOnInit() {
+    this.sharedService.searchResults$.subscribe((resultados: Pergunta[]) => {
+      this.perguntas = resultados;
     });
+    this.buscarTodasPerguntas();
+  }
+  
+  buscarTodasPerguntas() {
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = resultados;
+    })
   }
 
-  buscaPergunta(): void {}
+  buscarRespondidas() {
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = []
+      for (let resultado of resultados) {
+        if (resultado.respostas?.length != 0) {
+          this.perguntas.push(resultado)
+          console.log(this.perguntas);
+        }
+      }
+    })
+  }
 
-  getRespondidas(): void {}
-
-  getNaoRespondidas(): void {}
+  buscarNaoRespondidas(){
+    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+      this.perguntas = []
+      for (let resultado of resultados) {
+        if (resultado.respostas?.length == 0) {
+          this.perguntas.push(resultado)
+        }
+      }
+    })
+  }
 }

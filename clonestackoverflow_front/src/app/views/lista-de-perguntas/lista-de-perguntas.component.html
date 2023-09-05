@@ -8,9 +8,9 @@
       {{ perguntas.length }}
       {{ perguntas.length > 1 ? 'perguntas' : 'pergunta' }} </h2>
     <div>
-      <button class="botaoEsquerdo filtro selecionado" (click)="getPerguntas()">Todas</button>
-      <button class="botaoCentro filtro" (click)="getRespondidas()">Respondidas</button>
-      <button class="botaoDireito filtro" (click)="getNaoRespondidas()">Não Respondidas</button>
+      <button class="botaoEsquerdo filtro selecionado" (click)="buscarTodasPerguntas()">Todas</button>
+      <button class="botaoCentro filtro" (click)="buscarRespondidas()" >Respondidas</button>
+      <button class="botaoDireito filtro" (click)="buscarNaoRespondidas()" >Não Respondidas</button>
     </div>
   </div>
   <mat-list class="example-list-wrapping" *ngFor="let pergunta of perguntas">
@@ -19,9 +19,13 @@
       <span [routerLink]="['/pergunta', pergunta.id]" span class="perguntaTitulo"
         matListItemTitle>{{pergunta.titulo_pergunta}}</span>
       <span class="perguntaDescricao">{{pergunta.descricao_pergunta}}</span>
-
     </mat-list-item>
     <div class="dadosUsuario">
+      <div class="quantidadeResposta" *ngIf="pergunta.respostas.length">
+        <span>{{pergunta.respostas.length}}
+          {{pergunta.respostas.length > 1 ? 'respostas' : 'resposta'}}
+        </span>
+      </div>
       <span class="usuarioPergunta">{{pergunta.usuario.nome}}</span>
       <span class="dataPergunta">{{pergunta.data_pergunta}}</span>
       <span></span>

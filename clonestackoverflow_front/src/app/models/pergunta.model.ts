@@ -6,5 +6,5 @@ export interface Pergunta {
   descricao_pergunta: String;
   data_pergunta?: Date;
   usuario: Usuario;
-  respostas?: Resposta[];
+  respostas: Resposta[];
 }

@@ -12,6 +12,7 @@ import { LoginComponent } from './components/header/login/login.component';
 import { SearchComponent } from './components/header/search/search.component';
 import { FormPerguntaComponent } from './views/form-pergunta/form-pergunta.component';
 import { PerguntaComponent } from './views/pergunta/pergunta.component';
+import { RespostaComponent } from './views/resposta/resposta.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PerguntaComponent } from './views/pergunta/pergunta.component';
     ListaDePerguntasComponent,
     FormPerguntaComponent,
     PerguntaComponent,
+    RespostaComponent
   ],
   imports: [
     BrowserModule,
