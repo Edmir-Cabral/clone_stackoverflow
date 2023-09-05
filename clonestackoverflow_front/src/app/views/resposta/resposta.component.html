@@ -1,21 +1,29 @@
 <div class="container">
-<div class="todas-respostas-container">
-  <div class="todas-respostas-conteudo" style="display: flex; flex-direction: column;"
-    *ngFor="let pergunta of pergunta.respostas">
-    <div class="todas-respostas-esquerda">
-      <div class="todas-opcoes">
-        <p class="arrow">⇧</p>
-        <p class="arrow">0</p>
-        <p class="arrow">⇩</p>
+  <div class="todas-respostas-container">
+    <h1 class="qtd-respostas" *ngIf="perguntas.respostas.length > 0">{{perguntas.respostas.length}} Respostas</h1>
+    <h1 *ngIf="perguntas.respostas.length < 1">{{perguntas.respostas.length}} Resposta</h1>
+    <div class="todas-respostas-conteudo" *ngFor="let pergunta of perguntas.respostas">
+      <div class="respostas-descricao">
+        <span>{{ pergunta.descricao_resposta }}</span>
       </div>
-    </div>
-    <div class="respostas-descricao">
-      <span>{{ pergunta.descricao_resposta }}</span>
-    </div>
-    <div class="resposta-resto">
-      <span>{{ pergunta.data_resposta }}</span>
-      <span> {{ pergunta.usuario.nome}} </span>
+
+      <div class="resposta-resto">
+        <span> {{ pergunta.data_resposta}}</span>
+        <span style="margin-left: 15px; color: #1170B9;"> {{ pergunta.usuario.nome}} </span>
+      </div>
     </div>
   </div>
 </div>
-</div>
+<form #form="ngForm" (ngSubmit)="enviarResposta(form)">
+  <div class="responder">
+
+    <label>Sua resposta</label>
+    <textarea [(ngModel)]="resposta.descricao_resposta" name="descricao_resposta"></textarea>
+  </div>
+
+  <div class="container-botoes-responder">
+
+    <button class="botao-limpar">Limpar</button>
+    <button type="submit" class="botao-enviar" style="margin-left: 5px;">Enviar resposta</button>
+  </div>
+</form>

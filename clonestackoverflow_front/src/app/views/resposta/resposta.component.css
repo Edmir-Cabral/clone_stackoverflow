@@ -1,0 +1,90 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.todas-respostas-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.qtd-respostas{
+  display: flex;
+  margin-left: -630px;
+}
+
+.respostas-descricao{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-wrap: break-word;
+  width: fit-content;
+}
+
+.todas-respostas-conteudo{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+  border-bottom: 1px solid #919499;
+}
+
+
+.resposta-resto{
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+
+.respostas-descricao{
+  font-size: 19px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.responder{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.responder textarea{
+  border-radius: 8px;
+  width: 765px;
+  height: 244px;
+}
+
+.responder label{
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.container-botoes-responder{
+  display: flex;
+  justify-content: end;
+  margin-top: 5px;
+}
+
+.botao-enviar{
+  color: #FFF;
+  border-radius: 8px;
+  background-color: #0A95FF;
+  width:130px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.botao-limpar{
+  background-color: #919499;
+  color: #FFFFFF;
+  border-radius: 8px;
+  cursor: pointer;
+}
