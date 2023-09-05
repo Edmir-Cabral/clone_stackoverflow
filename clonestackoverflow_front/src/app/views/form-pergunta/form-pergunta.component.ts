@@ -39,10 +39,9 @@ export class FormPerguntaComponent {
   enviarPergunta(form: NgForm) {
     console.log(this.idGoogle);
 
-    this.perguntaService.cadastrarPergunta(this.pergunta).subscribe((res) => {
-      console.log(res);
+    this.perguntaService.cadastrarPergunta(this.pergunta).subscribe(() => {});
 
-      form.reset();
-    });
+    form.reset();
+    location.href = 'http://localhost:4200/lista';
   }
 }

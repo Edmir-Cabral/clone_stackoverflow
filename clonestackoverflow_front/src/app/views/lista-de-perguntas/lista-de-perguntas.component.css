@@ -36,8 +36,6 @@
   font-family: "Inter", sans-serif;
   width: 257px;
   height: 33px;
-  top: 93px;
-  left: 276px;
   font-weight: 600;
   font-size: 27px;
   line-height: 32.68px;
@@ -63,16 +61,12 @@
 .botaoCentro {
   width: 102px;
   height: 40px;
-  top: 170px;
-  left: 724px;
   border: 1px;
 }
 
 .botaoDireito {
   width: 122px;
   height: 40px;
-  top: 170px;
-  left: 724px;
   border-radius: 0px 11px 11px 0px;
   border: 1px;
 }
@@ -85,8 +79,6 @@
   font-family: "Inter", sans-serif;
   width: 285px;
   height: 30px;
-  top: 173px;
-  left: 276px;
   color: #919499;
 }
 
@@ -110,8 +102,6 @@
 .perguntaDescricao {
   width: 691px;
   height: 36px;
-  top: 275px;
-  left: 294px;
   font-family: Hannari;
   font-weight: 400px;
   font-size: 22px;
@@ -124,41 +114,31 @@
 
 .dadosUsuario {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+
+  gap: 0.6rem;
 }
 
 .usuarioPergunta {
-  width: 68px;
-  height: 18px;
-  top: 319px;
-  left: 841px;
   color: #1170b9;
   font-family: Hannari;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-right: 10px;
-  margin-top: 5px;
 }
 
 .dataPergunta {
-  width: 64px;
-  height: 18px;
   color: #636363;
-  top: 319px;
-  left: 921px;
   font-family: Hannari;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-top: 5px;
 }
 
 .quantidadeResposta {
-  width: 61px;
   color: #636363;
   font-family: Hannari;
   font-size: 12px;

@@ -9,8 +9,8 @@
       {{ perguntas.length > 1 ? 'perguntas' : 'pergunta' }} </h2>
     <div>
       <button class="botaoEsquerdo filtro selecionado" (click)="buscarTodasPerguntas()">Todas</button>
-      <button class="botaoCentro filtro" (click)="buscarRespondidas()" >Respondidas</button>
-      <button class="botaoDireito filtro" (click)="buscarNaoRespondidas()" >Não Respondidas</button>
+      <button class="botaoCentro filtro" (click)="buscarRespondidas()">Respondidas</button>
+      <button class="botaoDireito filtro" (click)="buscarNaoRespondidas()">Não Respondidas</button>
     </div>
   </div>
   <mat-list class="example-list-wrapping" *ngFor="let pergunta of perguntas">
@@ -22,12 +22,13 @@
     </mat-list-item>
     <div class="dadosUsuario">
       <div class="quantidadeResposta" *ngIf="pergunta.respostas.length">
-        <span>{{pergunta.respostas.length}}
+        <span>
+          {{pergunta.respostas.length}}
           {{pergunta.respostas.length > 1 ? 'respostas' : 'resposta'}}
         </span>
       </div>
       <span class="usuarioPergunta">{{pergunta.usuario.nome}}</span>
-      <span class="dataPergunta">{{pergunta.data_pergunta}}</span>
+      <span class="dataPergunta">{{pergunta.data_pergunta | date : 'mediumDate' : '' : 'pt-BR'}}</span>
       <span></span>
     </div>
   </mat-list>

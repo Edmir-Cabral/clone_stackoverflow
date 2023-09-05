@@ -18,6 +18,8 @@
 .logo {
   display: flex;
   align-items: center;
+
+  cursor: pointer;
 }
 .logoImage {
   width: 200px;
