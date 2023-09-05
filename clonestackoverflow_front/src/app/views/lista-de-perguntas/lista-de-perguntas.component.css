@@ -138,6 +138,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .dataPergunta {
@@ -151,6 +153,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-top: 5px;
 }
 
 @media (max-width: 1030px) {

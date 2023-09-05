@@ -3,18 +3,18 @@
   justify-content: center;
   align-items: flex-start;
   margin-top: 50px;
-  height: 100vh;
+  height: max-content;
 }
 
 .pergunta {
   width: 791px;
-  height: 316px;
+  height: 100%;
   top: 61px;
   left: 244px;
   border: 0px 0px 1px 0px;
   border-bottom: 1px solid #919499;
-
   padding: 0 1rem;
+  padding-bottom: 20px;
 }
 
 .titulo {
