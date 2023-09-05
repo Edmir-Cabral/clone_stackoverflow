@@ -1,15 +1,16 @@
 <div class="container">
   <div class="todas-respostas-container">
-    <h1 class="qtd-respostas" *ngIf="perguntas.respostas.length > 0">{{perguntas.respostas.length}} Respostas</h1>
-    <h1 *ngIf="perguntas.respostas.length < 1">{{perguntas.respostas.length}} Resposta</h1>
-    <div class="todas-respostas-conteudo" *ngFor="let pergunta of perguntas.respostas">
+    <h1 class="qtd-respostas">
+      {{respostas.length}}
+      {{respostas.length > 1 ? 'respostas' : 'resposta' }}</h1>
+    <div class="todas-respostas-conteudo" *ngFor="let item of respostas">
       <div class="respostas-descricao">
-        <span>{{ pergunta.descricao_resposta }}</span>
+        <span>{{ item.descricao_resposta }}</span>
       </div>
 
       <div class="resposta-resto">
-        <span> {{ pergunta.data_resposta}}</span>
-        <span style="margin-left: 15px; color: #1170B9;"> {{ pergunta.usuario.nome}} </span>
+        <span> {{ item.data_resposta }}</span>
+        <span style="margin-left: 15px; color: #1170B9;"> {{ item.usuario.nome}} </span>
       </div>
     </div>
   </div>

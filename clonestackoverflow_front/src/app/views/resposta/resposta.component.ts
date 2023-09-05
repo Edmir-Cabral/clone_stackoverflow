@@ -1,14 +1,12 @@
-import { Pergunta } from './../../models/pergunta.model';
-import { RespostaService } from './../../services/resposta.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { inject } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { RespostaService } from './../../services/resposta.service';
 
+import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Resposta } from 'src/app/models/resposta.model';
 import { PerguntaService } from '../../services/pergunta.service';
-import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import { Observable, Subscription, map } from 'rxjs';
 
 export interface EnviarResposta {
   descricao_resposta: string;
@@ -27,51 +25,32 @@ export interface EnviarResposta {
   styleUrls: ['./resposta.component.css'],
 })
 export class RespostaComponent implements OnInit {
-
-  @Input() perguntaEdmir: number = 0;
-
-  perguntas: Pergunta[] | any ;
+  resposta_enviada: EnviarResposta;
+  respostas: Resposta[];
   perguntaId: number = 0;
   descricao_resposta: string | any = '';
   idGoogle?: string | null = '';
-  testeId: string | number = '';
-  respostas: Resposta[] | any;
-  armazenarId: string | number;
-  perguntaIdString: string = '';
-
 
   constructor(
     private perguntaService: PerguntaService,
     private ActivatedRoute: ActivatedRoute,
     private authService: AuthService,
     private respostaService: RespostaService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.listagemInicialDeRespostas();
-    this.perguntas = this.respostaService.read();
-    this.perguntaService
-      .buscarPorId(this.perguntaId)
-     .subscribe((resp) => (console.log('FILIPE ',this.perguntas = resp)));
-  }
-
-  listagemInicialDeRespostas() {
     let params: Observable<Params> = this.ActivatedRoute.params;
     params.subscribe((urlParams) => {
       this.perguntaId = +urlParams['id'];
-
-      console.log(this.perguntaId);
-
-
-      this.respostaService.readById(this.perguntaId).subscribe(( res ) => {console.log('RESPOSTA', res.pergunta)});
-
-
-      this.perguntaService.buscarPorId(this.perguntaId).subscribe(( res ) => {console.log('PERGUNTA',res.id)});
-
-      console.log('PERGUNTA ID=', this.perguntaId);
     });
+
+    this.listagemInicialDeRespostas();
+  }
+
+  listagemInicialDeRespostas() {
+    this.perguntaService
+      .buscarPorId(this.perguntaId)
+      .subscribe((resp) => (this.respostas = resp.respostas));
   }
 
   resposta: EnviarResposta = {
@@ -81,19 +60,27 @@ export class RespostaComponent implements OnInit {
       idGoogle: this.authService.extrairNomeIdGoogleDoUsuario(),
     },
     pergunta: {
-      id:  this.perguntaEdmir
+      id: this.perguntaId,
     },
   };
 
-
   enviarResposta(form: NgForm) {
-    console.log(this.perguntaEdmir);
+    this.resposta_enviada = {
+      descricao_resposta: this.resposta.descricao_resposta,
+      data_resposta: Date.now(),
+      usuario: {
+        idGoogle: this.authService.extrairNomeIdGoogleDoUsuario(),
+      },
+      pergunta: {
+        id: this.perguntaId,
+      },
+    };
 
-    console.log(this.resposta);
+    this.respostaService
+      .postResposta(this.resposta_enviada)
+      .subscribe(() => {});
 
-    this.respostaService.postResposta(this.resposta).subscribe((response) => {
-      console.log(response);
-    });
     form.reset();
+    location.reload();
   }
 }
