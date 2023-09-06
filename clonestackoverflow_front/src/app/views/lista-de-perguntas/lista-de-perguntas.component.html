@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="inicial">
-    <h3 class="titulo">Todas as Perguntas</h3>
-    <button routerLink="/nova-pergunta" class="novaPergunta">Fazer Pergunta</button>
-  </div>
-  <div class="topo">
-    <h2 class="total">
-      {{ perguntas.length }}
-      {{ perguntas.length > 1 ? 'perguntas' : 'pergunta' }} </h2>
-    <div>
-      <button class="botaoEsquerdo filtro selecionado" (click)="buscarTodasPerguntas()">Todas</button>
-      <button class="botaoCentro filtro" (click)="buscarRespondidas()">Respondidas</button>
-      <button class="botaoDireito filtro" (click)="buscarNaoRespondidas()">Não Respondidas</button>
+  <div class="grupoInicialTopo">
+    <div class="inicial">
+      <h3 class="titulo">Todas as Perguntas</h3>
+      <button routerLink="/nova-pergunta" class="novaPergunta">Fazer Pergunta</button>
+    </div>
+    <div class="topo">
+      <h2 class="total">
+        {{ perguntas.length }}
+        {{ perguntas.length > 1 ? 'perguntas' : 'pergunta' }} </h2>
+      <div>
+        <button class="botaoEsquerdo filtro selecionado" (click)="buscarTodasPerguntas()">Todas</button>
+        <button class="botaoCentro filtro" (click)="buscarRespondidas()">Respondidas</button>
+        <button class="botaoDireito filtro" (click)="buscarNaoRespondidas()">Não Respondidas</button>
+      </div>
     </div>
   </div>
   <mat-list class="example-list-wrapping" *ngFor="let pergunta of perguntas">
@@ -21,10 +23,13 @@
       <span class="perguntaDescricao">{{pergunta.descricao_pergunta}}</span>
     </mat-list-item>
     <div class="dadosUsuario">
-      <div class="quantidadeResposta" *ngIf="pergunta.respostas.length">
-        <span>
-          {{pergunta.respostas.length}}
-          {{pergunta.respostas.length > 1 ? 'respostas' : 'resposta'}}
+      <div class="quantidadeResposta">
+        <span class="{{ pergunta.respostas.length < 1 ? 'sem-resposta' : 'com-resposta' }}">
+          {{ pergunta.respostas.length }}
+        </span>
+
+        <span class="{{ pergunta.respostas.length < 1 ? 'sem-resposta' : 'com-resposta' }}">
+          {{ pergunta.respostas.length > 1 ? 'respostas' : 'resposta' }}
         </span>
       </div>
       <span class="usuarioPergunta">{{pergunta.usuario.nome}}</span>

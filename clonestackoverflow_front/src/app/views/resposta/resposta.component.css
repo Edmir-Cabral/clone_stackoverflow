@@ -4,28 +4,33 @@
   align-items: center;
   width: 100%;
   position: relative;
+  padding: 0 10px;
 }
 
 .todas-respostas-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   margin-top: 3px;
   width: 100%;
 }
 
 .qtd-respostas {
-  display: flex;
-  margin-left: -630px;
+  text-align: start;
+  color: #f48225;
 }
 
-.respostas-descricao {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-wrap: break-word;
-  width: fit-content;
+.sem-resposta {
+  color: #636363;
+}
+
+.com-resposta {
+  color: #f48225;
+}
+
+.respostas-descricao span {
+  font-size: 16px;
 }
 
 .todas-respostas-conteudo {
@@ -48,6 +53,10 @@
   justify-content: flex-start;
 }
 
+form{
+  padding: 0 10px;
+  border: none;
+}
 .responder {
   display: flex;
   flex-direction: column;
@@ -56,7 +65,8 @@
 
 .responder textarea {
   border-radius: 8px;
-  width: 765px;
+  max-width: 765px;
+  width: 100%;
   height: 244px;
 
   padding: 10px;
@@ -70,6 +80,7 @@
 
 .container-botoes-responder {
   display: flex;
+  gap: 5px;
   justify-content: end;
   margin-top: 5px;
 }
@@ -93,3 +104,10 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.nomeUsuario{
+  margin-left: 15px;
+  color: #1170B9;
+}
+
+

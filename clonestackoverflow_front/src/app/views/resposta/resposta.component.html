@@ -1,30 +1,35 @@
 <div class="container">
   <div class="todas-respostas-container">
-    <h1 class="qtd-respostas">
-      {{respostas.length}}
-      {{respostas.length > 1 ? 'respostas' : 'resposta' }}</h1>
+    <h2 class="qtd-respostas">
+      <span class="{{ respostas.length < 1 ? 'sem-resposta' : 'com-resposta' }}">
+        {{ respostas.length }}
+      </span>
+
+      <span class="{{respostas.length < 1 ? 'sem-resposta' : 'com-resposta' }}">
+        {{respostas.length > 1 ? 'respostas' : 'resposta' }}
+      </span>
+    
+    </h2>
     <div class="todas-respostas-conteudo" *ngFor="let item of respostas">
       <div class="respostas-descricao">
         <span>{{ item.descricao_resposta }}</span>
       </div>
 
       <div class="resposta-resto">
-        <span> {{ item.data_resposta }}</span>
-        <span style="margin-left: 15px; color: #1170B9;"> {{ item.usuario.nome}} </span>
+        <span> {{ item.data_resposta | date : 'mediumDate' : '' : 'pt-BR'}}</span>
+        <span class="nomeUsuario"> {{ item.usuario.nome}} </span>
       </div>
     </div>
   </div>
 </div>
 <form #form="ngForm" (ngSubmit)="enviarResposta(form)">
   <div class="responder">
-
     <label>Sua resposta</label>
     <textarea [(ngModel)]="resposta.descricao_resposta" name="descricao_resposta"></textarea>
   </div>
 
   <div class="container-botoes-responder">
-
     <button class="botao-limpar">Limpar</button>
-    <button type="submit" class="botao-enviar" style="margin-left: 5px;">Enviar resposta</button>
+    <button type="submit" class="botao-enviar">Enviar resposta</button>
   </div>
 </form>

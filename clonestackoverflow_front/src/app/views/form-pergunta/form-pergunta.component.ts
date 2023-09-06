@@ -32,14 +32,14 @@ export class FormPerguntaComponent {
     descricao_pergunta: this.descricao_pergunta,
     data_pergunta: Date.now(),
     usuario: {
-      idGoogle: this.authService.extrairNomeIdGoogleDoUsuario(),
+      idGoogle: this.authService.extrairIdGoogleDoToken(),
     },
   };
 
   enviarPergunta(form: NgForm) {
     console.log(this.idGoogle);
 
-    this.perguntaService.cadastrarPergunta(this.pergunta).subscribe(() => {});
+    this.perguntaService.inserir(this.pergunta).subscribe(() => {});
 
     form.reset();
     location.href = 'http://localhost:4200/lista';

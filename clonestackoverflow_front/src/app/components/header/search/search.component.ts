@@ -1,7 +1,7 @@
 import { SharedService } from './../../../services/shared.service';
 import { Pergunta } from 'src/app/models/pergunta.model';
 import { PerguntaService } from 'src/app/services/pergunta.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -10,20 +10,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
 
-  searchTerm: string = '';
-  showAllResults: boolean = true;
+  textoDaBusca: string = '';
+  resultadoDaBusca: boolean = true;
   constructor(private perguntaService: PerguntaService, private sharedService: SharedService) { }
 
   search() {
-    if (this.searchTerm.length > 0) {
-      this.perguntaService.buscaPorTitulo(this.searchTerm).subscribe((resultados: Pergunta[]) => {
-        this.sharedService.setSearchResults(resultados); // Atualiza os resultados no serviço compartilhado
-        //console.log(resultados);
+    if (this.textoDaBusca.length > 0) {
+      this.perguntaService.buscaPorTitulo(this.textoDaBusca).subscribe((resultados: Pergunta[]) => {
+        this.sharedService.buscar(resultados); 
       });
     } else {
-      this.perguntaService.todasPerguntas().subscribe((resultados: Pergunta[]) => {
-        this.sharedService.setSearchResults(resultados);
-       // console.log(resultados);
+      this.perguntaService.buscarTodas().subscribe((resultados: Pergunta[]) => {
+        this.sharedService.buscar(resultados);
       });
     }
   }

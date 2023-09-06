@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor(public authService: AuthService) {
     this.nomeUsuario = authService.extrairNomeUsuarioDoToken();
-    this.idUsuario = authService.extrairNomeIdGoogleDoUsuario();
+    this.idUsuario = authService.extrairIdGoogleDoToken();
   }
 
   alternarMenuLogin() {

@@ -21,7 +21,7 @@ export class AuthService {
     return null;
   }
 
-  extrairNomeIdGoogleDoUsuario(): string {
+  extrairIdGoogleDoToken(): string {
     const token = this.cookieService.get('authToken');
     const decodificarToken: any = jwt_decode(token);
     return decodificarToken.sub;

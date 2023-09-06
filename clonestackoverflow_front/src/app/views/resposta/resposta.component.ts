@@ -24,11 +24,12 @@ export interface EnviarResposta {
   templateUrl: './resposta.component.html',
   styleUrls: ['./resposta.component.css'],
 })
+
 export class RespostaComponent implements OnInit {
   resposta_enviada: EnviarResposta;
   respostas: Resposta[];
   perguntaId: number = 0;
-  descricao_resposta: string | any = '';
+  descricao_resposta: string = '';
   idGoogle?: string | null = '';
 
   constructor(
@@ -57,7 +58,7 @@ export class RespostaComponent implements OnInit {
     descricao_resposta: this.descricao_resposta,
     data_resposta: Date.now(),
     usuario: {
-      idGoogle: this.authService.extrairNomeIdGoogleDoUsuario(),
+      idGoogle: this.authService.extrairIdGoogleDoToken(),
     },
     pergunta: {
       id: this.perguntaId,
@@ -69,7 +70,7 @@ export class RespostaComponent implements OnInit {
       descricao_resposta: this.resposta.descricao_resposta,
       data_resposta: Date.now(),
       usuario: {
-        idGoogle: this.authService.extrairNomeIdGoogleDoUsuario(),
+        idGoogle: this.authService.extrairIdGoogleDoToken(),
       },
       pergunta: {
         id: this.perguntaId,
@@ -77,7 +78,7 @@ export class RespostaComponent implements OnInit {
     };
 
     this.respostaService
-      .postResposta(this.resposta_enviada)
+      .inserir(this.resposta_enviada)
       .subscribe(() => {});
 
     form.reset();

@@ -7,6 +7,12 @@
   margin-top: 50px;
 }
 
+.grupoInicialTopo{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .inicial {
   display: flex;
   justify-content: space-between;
@@ -79,7 +85,7 @@
   font-family: "Inter", sans-serif;
   width: 285px;
   height: 30px;
-  color: #919499;
+  color: #f48225;
 }
 
 .pergunta {
@@ -108,6 +114,14 @@
   line-height: 18px;
 }
 
+.sem-resposta {
+  color: #636363;
+}
+
+.com-resposta {
+  color: #f48225;
+}
+
 .example-list-wrapping {
   max-width: 795px;
 }
@@ -116,7 +130,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  margin-top: 10px;
   gap: 0.6rem;
 }
 

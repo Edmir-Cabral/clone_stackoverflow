@@ -10,20 +10,17 @@ import { EnviarResposta } from '../views/resposta/resposta.component';
 export class RespostaService {
   private readonly baseUrl= "http://localhost:8080/api/respostas"
   constructor(private http: HttpClient) { }
-  read(): Observable<Resposta[]>{
+
+  buscarTodas(): Observable<Resposta[]>{
     return this.http.get<Resposta[]>(this.baseUrl);
   }
 
-  readById(id: number): Observable<Resposta>{
+  buscarPorId(id: number): Observable<Resposta>{
     const url = `http://localhost:8080/api/respostas/${id}`
     return this.http.get<Resposta>(url);
   }
 
-  postResposta(resposta: EnviarResposta): Observable<Resposta> {
-    return this.http.post<Resposta>("http://localhost:8080/api/respostas", resposta);
-  }
-
-  postRespostaModel(resposta: Resposta): Observable<Resposta> {
+  inserir(resposta: EnviarResposta): Observable<Resposta> {
     return this.http.post<Resposta>("http://localhost:8080/api/respostas", resposta);
   }
 }

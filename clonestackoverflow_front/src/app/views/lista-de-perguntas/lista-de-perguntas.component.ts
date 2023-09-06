@@ -16,32 +16,31 @@ export class ListaDePerguntasComponent implements OnInit {
   constructor(private perguntaService: PerguntaService, private sharedService: SharedService) { }
   
   ngOnInit() {
-    this.sharedService.searchResults$.subscribe((resultados: Pergunta[]) => {
+    this.sharedService.resultadoDaBusca.subscribe((resultados: Pergunta[]) => {
       this.perguntas = resultados;
     });
     this.buscarTodasPerguntas();
   }
   
   buscarTodasPerguntas() {
-    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+    this.perguntaService.buscarTodas().subscribe((resultados) => {
       this.perguntas = resultados;
     })
   }
 
   buscarRespondidas() {
-    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+    this.perguntaService.buscarTodas().subscribe((resultados) => {
       this.perguntas = []
       for (let resultado of resultados) {
         if (resultado.respostas?.length != 0) {
           this.perguntas.push(resultado)
-          console.log(this.perguntas);
         }
       }
     })
   }
 
   buscarNaoRespondidas(){
-    this.perguntaService.todasPerguntas().subscribe((resultados) => {
+    this.perguntaService.buscarTodas().subscribe((resultados) => {
       this.perguntas = []
       for (let resultado of resultados) {
         if (resultado.respostas?.length == 0) {

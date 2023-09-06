@@ -17,10 +17,10 @@ import { PerguntaService } from 'src/app/services/pergunta.service';
 })
 export class PerguntaComponent implements OnInit, OnDestroy {
   @Output() perguntaId: number;
-  pergunta: Pergunta | any;
+  pergunta: Pergunta;
   isLoading = true;
 
-  private subscription: Subscription | undefined;
+  private subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
