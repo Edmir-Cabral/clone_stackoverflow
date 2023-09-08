@@ -9,44 +9,85 @@ import { PerguntaService } from '../../services/pergunta.service';
   styleUrls: ['./lista-de-perguntas.component.css'],
 })
 export class ListaDePerguntasComponent implements OnInit {
-
   perguntas: Pergunta[] = [];
   mostrarComRespostas = false;
-  
-  constructor(private perguntaService: PerguntaService, private sharedService: SharedService) { }
-  
+
+  constructor(
+    private perguntaService: PerguntaService,
+    private sharedService: SharedService
+  ) {}
+
   ngOnInit() {
     this.sharedService.resultadoDaBusca.subscribe((resultados: Pergunta[]) => {
       this.perguntas = resultados;
     });
+
     this.buscarTodasPerguntas();
   }
-  
+
   buscarTodasPerguntas() {
     this.perguntaService.buscarTodas().subscribe((resultados) => {
       this.perguntas = resultados;
-    })
+    });
+
+    this.animacaoDosFiltros('botaoEsquerdo');
   }
 
   buscarRespondidas() {
     this.perguntaService.buscarTodas().subscribe((resultados) => {
-      this.perguntas = []
+      this.perguntas = [];
       for (let resultado of resultados) {
         if (resultado.respostas?.length != 0) {
-          this.perguntas.push(resultado)
+          this.perguntas.push(resultado);
         }
       }
-    })
+    });
+
+    this.animacaoDosFiltros('botaoCentro');
   }
 
-  buscarNaoRespondidas(){
+  buscarNaoRespondidas() {
     this.perguntaService.buscarTodas().subscribe((resultados) => {
-      this.perguntas = []
+      this.perguntas = [];
       for (let resultado of resultados) {
         if (resultado.respostas?.length == 0) {
-          this.perguntas.push(resultado)
+          this.perguntas.push(resultado);
         }
       }
-    })
+    });
+
+    this.animacaoDosFiltros('botaoDireito');
+  }
+
+  animacaoDosFiltros(nomeBotao: string) {
+    document.querySelector(`.${nomeBotao}`)?.classList.add('selecionado');
+
+    switch (nomeBotao) {
+      case 'botaoEsquerdo': {
+        document.querySelector('.botaoCentro')?.classList.remove('selecionado');
+        document
+          .querySelector('.botaoDireito')
+          ?.classList.remove('selecionado');
+        break;
+      }
+
+      case 'botaoCentro': {
+        document
+          .querySelector('.botaoEsquerdo')
+          ?.classList.remove('selecionado');
+        document
+          .querySelector('.botaoDireito')
+          ?.classList.remove('selecionado');
+        break;
+      }
+
+      case 'botaoDireito': {
+        document
+          .querySelector('.botaoEsquerdo')
+          ?.classList.remove('selecionado');
+        document.querySelector('.botaoCentro')?.classList.remove('selecionado');
+        break;
+      }
+    }
   }
 }

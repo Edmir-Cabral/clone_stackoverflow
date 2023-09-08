@@ -7,7 +7,7 @@
   margin-top: 50px;
 }
 
-.grupoInicialTopo{
+.grupoInicialTopo {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -55,11 +55,13 @@
   align-items: center;
 }
 
+.filtro {
+  cursor: pointer;
+}
+
 .botaoEsquerdo {
   width: 62px;
   height: 40px;
-  top: 170px;
-  left: 724px;
   border-radius: 11px 0px 0px 11px;
   border: 1px;
 }
@@ -83,16 +85,13 @@
 
 .total {
   font-family: "Inter", sans-serif;
-  width: 285px;
-  height: 30px;
+  font-weight: 700;
   color: #f48225;
 }
 
 .pergunta {
   width: 791px;
   height: 146px;
-  top: 221px;
-  left: 244px;
   border: 0px, 0px, 1px, 0px;
 }
 

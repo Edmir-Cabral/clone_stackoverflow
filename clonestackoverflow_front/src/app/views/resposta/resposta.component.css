@@ -10,15 +10,13 @@
 .todas-respostas-container {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
   margin-top: 3px;
   width: 100%;
 }
 
 .qtd-respostas {
-  text-align: start;
-  color: #f48225;
+  margin: 10px 0 0 0;
 }
 
 .sem-resposta {
@@ -36,7 +34,7 @@
 .todas-respostas-conteudo {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
   border-bottom: 1px solid #919499;
 }
@@ -45,6 +43,12 @@
   display: flex;
   margin-top: 25px;
   margin-bottom: 15px;
+
+  font-size: 12px;
+}
+
+.resposta-resto .data {
+  color: #919499;
 }
 
 .respostas-descricao {
@@ -53,7 +57,7 @@
   justify-content: flex-start;
 }
 
-form{
+form {
   padding: 0 10px;
   border: none;
 }
@@ -105,9 +109,7 @@ button {
   cursor: pointer;
 }
 
-.nomeUsuario{
+.nomeUsuario {
   margin-left: 15px;
-  color: #1170B9;
+  color: #1170b9;
 }
-
-

@@ -8,7 +8,7 @@
       <span class="{{respostas.length < 1 ? 'sem-resposta' : 'com-resposta' }}">
         {{respostas.length > 1 ? 'respostas' : 'resposta' }}
       </span>
-    
+
     </h2>
     <div class="todas-respostas-conteudo" *ngFor="let item of respostas">
       <div class="respostas-descricao">
@@ -16,7 +16,7 @@
       </div>
 
       <div class="resposta-resto">
-        <span> {{ item.data_resposta | date : 'mediumDate' : '' : 'pt-BR'}}</span>
+        <span class="data"> {{ item.data_resposta | date : 'mediumDate' : '' : 'pt-BR'}}</span>
         <span class="nomeUsuario"> {{ item.usuario.nome}} </span>
       </div>
     </div>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="container-botoes-responder">
-    <button class="botao-limpar">Limpar</button>
+    <button type="reset" class="botao-limpar">Limpar</button>
     <button type="submit" class="botao-enviar">Enviar resposta</button>
   </div>
 </form>
