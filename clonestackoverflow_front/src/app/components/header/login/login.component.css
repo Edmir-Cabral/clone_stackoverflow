@@ -1,5 +1,9 @@
 .login-menu {
+  width: 230px;
   position: relative;
+
+  display: flex;
+  justify-content: end;
 }
 
 .login-button {

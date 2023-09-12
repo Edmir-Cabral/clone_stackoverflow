@@ -18,7 +18,7 @@
   border: 0.7px solid #919499;
   background: #fff;
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
 }
 
 .search-container input::placeholder {
