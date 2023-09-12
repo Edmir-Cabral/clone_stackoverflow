@@ -47,7 +47,7 @@ public class Pergunta {
 	@Column(name = "TITULO_PERGUNTA")
 	private String tituloPergunta;
 
-	@Column(name = "DESCRICAO_PERGUNTA")
+	@Column(name = "DESCRICAO_PERGUNTA", length  = 5000)
 	private String descricao_pergunta;
 
 	@Column(name = "DATA_PERGUNTA")

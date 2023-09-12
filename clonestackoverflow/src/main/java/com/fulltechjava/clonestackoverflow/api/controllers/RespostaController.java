@@ -28,28 +28,28 @@ public class RespostaController {
 	}
 	
 	@PostMapping("/respostas")
-	public RespostaDTO post(@RequestBody RespostaDTO resposta) {
-		return _service.Save(resposta);
+	public RespostaDTO criar(@RequestBody RespostaDTO resposta) {
+		return _service.inserir(resposta);
 	}
 	
 	
 	@GetMapping("/respostas")
-	public List<RespostaDTO> getAll() {
-		return _service.getAll();
+	public List<RespostaDTO> listar() {
+		return _service.buscarTodas();
 	}
 	
 	@GetMapping("/respostas/{id}")
-	public RespostaDTO getById(@PathVariable Integer id) {
-		return _service.getById(id);
+	public RespostaDTO buscarPorId(@PathVariable Integer id) {
+		return _service.buscarPorId(id);
 	}
 	
 	@PutMapping("/respostas/{id}")
-	public void update(@PathVariable Integer id, @RequestBody Resposta resposta) {
-		_service.update(id, resposta); 
+	public void atualizar(@PathVariable Integer id, @RequestBody Resposta resposta) {
+		_service.atualizar(id, resposta); 
 	}
 	
 //	@DeleteMapping("respostas/{id}")
-//	public void delete(@PathVariable Integer id) {
-//		_service.delete(id);
+//	public void deletar(@PathVariable Integer id) {
+//		_service.deletar(id);
 //	}
 }

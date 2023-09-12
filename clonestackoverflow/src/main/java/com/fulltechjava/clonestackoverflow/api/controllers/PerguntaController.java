@@ -34,35 +34,34 @@ public class PerguntaController {
 	}
 
 	@GetMapping("/perguntas")
-	public List<PerguntaDTO> getPerguntas() {
-		return perguntaService.getAllPerguntas();
+	public List<PerguntaDTO> listar() {
+		return perguntaService.buscarTodas();
 	}
 	
 	@GetMapping("/perguntas/titulo")
-	public List<Pergunta> getPerguntaByTitle(@RequestParam("tituloPergunta") String tituloPergunta){
-		return perguntaService.searchPerguntasPorTitulo(tituloPergunta);
+	public List<Pergunta> buscarPorTitulo(@RequestParam("tituloPergunta") String tituloPergunta){
+		return perguntaService.buscarPorTitulo(tituloPergunta);
 	}
 	
 	@GetMapping("/perguntas/{id}")
-	public PerguntaDTO getById(@PathVariable Integer id) {
-		return perguntaService.getById(id);
+	public PerguntaDTO buscarPorId(@PathVariable Integer id) {
+		return perguntaService.buscarPorId(id);
 	}
-	
-	
+		
 	@PostMapping("/perguntas")
-	public PerguntaDTO postPergunta(@RequestBody PerguntaDTO pergunta) {
-		return perguntaService.postPergunta(pergunta);
+	public PerguntaDTO criar(@RequestBody PerguntaDTO pergunta) {
+		return perguntaService.inserir(pergunta);
 	}
 	
 	@DeleteMapping(value = "/perguntas/{id}")
-	public ResponseEntity<Void> delete(@PathVariable int id){
-		perguntaService.delete(id);
+	public ResponseEntity<Void> deletar(@PathVariable int id){
+		perguntaService.deletar(id);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@PutMapping(value = "/perguntas/{id}")
-	public ResponseEntity<Pergunta> update(@PathVariable int id, @RequestBody Pergunta pergunta){
-		 pergunta = perguntaService.update(id, pergunta);
+	public ResponseEntity<Pergunta> atualizar(@PathVariable int id, @RequestBody Pergunta pergunta){
+		 pergunta = perguntaService.atualizar(id, pergunta);
 		 return ResponseEntity.ok().body(pergunta);
 	}
 }

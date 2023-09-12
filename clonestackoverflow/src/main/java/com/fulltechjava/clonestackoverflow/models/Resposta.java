@@ -43,7 +43,7 @@ public class Resposta {
 	@Column(name = "ID")
 	private Integer id;
 	
-	@Column(name = "DESCRICAO_RESPOSTA")
+	@Column(name = "DESCRICAO_RESPOSTA", length  = 5000)
 	private String descricao_resposta;	
 
 	@Column(name = "DATA_RESPOSTA")

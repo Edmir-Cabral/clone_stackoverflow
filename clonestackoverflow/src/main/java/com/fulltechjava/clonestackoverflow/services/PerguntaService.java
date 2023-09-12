@@ -24,7 +24,7 @@ public class PerguntaService {
 		this.mapper = mapper; 
 	}
 	
-	public List<PerguntaDTO> getAllPerguntas(){
+	public List<PerguntaDTO> buscarTodas(){
 		return perguntaRepository
 				.findAll()
 				.stream()
@@ -34,7 +34,7 @@ public class PerguntaService {
 	}
 
 
-	public PerguntaDTO getById(Integer id) {
+	public PerguntaDTO buscarPorId(Integer id) {
 		
 	return perguntaRepository.findById(id)
 			.map( pergunta ->{
@@ -45,15 +45,15 @@ public class PerguntaService {
 		});
 	}
 	
-	public PerguntaDTO postPergunta(PerguntaDTO pergunta) {
+	public PerguntaDTO inserir(PerguntaDTO pergunta) {
 		return mapper.paraDTO(perguntaRepository.save(mapper.paraEntity(pergunta)));
 	}
 	
-	public void delete (int id) {
+	public void deletar (int id) {
 		perguntaRepository.deleteById(id);
 	}
 	
-	public Pergunta update(int id, Pergunta pergunta) {
+	public Pergunta atualizar(int id, Pergunta pergunta) {
 		Pergunta entity = perguntaRepository.getReferenceById(id);
 		updateData(entity, pergunta);
 		return perguntaRepository.save(entity);
@@ -65,7 +65,7 @@ public class PerguntaService {
 		entity.setData_pergunta(pergunta.getData_pergunta());	
 	}
 	
-	public List<Pergunta> searchPerguntasPorTitulo(String titulo){
+	public List<Pergunta> buscarPorTitulo(String titulo){
 		return perguntaRepository.findBytituloPerguntaContaining(titulo);
 	}
 	

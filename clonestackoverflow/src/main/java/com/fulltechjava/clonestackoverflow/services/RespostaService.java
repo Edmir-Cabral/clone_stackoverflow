@@ -23,7 +23,7 @@ public class RespostaService {
 		_mapper = mapper;
 	}
 
-	public List<RespostaDTO> getAll() {		
+	public List<RespostaDTO> buscarTodas() {		
 		return _repository.findAll()
 				.stream()
 				.map( resposta ->{
@@ -31,7 +31,7 @@ public class RespostaService {
 				}).collect(Collectors.toList());
 	}
 
-	public RespostaDTO getById(Integer id) {
+	public RespostaDTO buscarPorId(Integer id) {
 		return _repository.findById(id)
 				.map( resposta ->{
 					return _mapper.paraDTO(resposta);
@@ -41,7 +41,7 @@ public class RespostaService {
 		});
 	}
 
-	public void update(Integer id, Resposta resposta) {
+	public void atualizar(Integer id, Resposta resposta) {
 		_repository.findById(id).map(respostaDb -> {
 			resposta.setId(respostaDb.getId());
 			_mapper.paraDTO(_repository.save(resposta));
@@ -49,11 +49,11 @@ public class RespostaService {
 		}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Falha ao alterar resposta"));
 	}
 
-	public RespostaDTO Save(RespostaDTO resposta) {
+	public RespostaDTO inserir(RespostaDTO resposta) {
 		return _mapper.paraDTO(_repository.save(_mapper.paraEntity(resposta)));
 	}
 
-//	public void delete(Integer id) {
+//	public void deletar(Integer id) {
 //		Resposta respostaId = getById(id);
 //		_repository.delete(respostaId);
 //}
