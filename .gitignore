@@ -126,4 +126,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Arquivo de configuracao do banco de dados
+*.properties
+
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
